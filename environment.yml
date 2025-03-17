@@ -12,8 +12,13 @@ dependencies:
   - langgraph
   - openai
   - langchain-openai
+  - langchain-groq
   - langchain-community
   - langchain-core
+  - langchain-anthropic
   - llama-index
-
-
+  - python-dotenv
+  - rank-bm25
+  - faiss-cpu
+  - pip
+  - pip:

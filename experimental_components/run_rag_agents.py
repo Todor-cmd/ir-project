@@ -1,9 +1,12 @@
+from dotenv import load_dotenv
+load_dotenv()
+
 from openai import OpenAI
 from langgraph.graph import Graph
 import os
 from langchain_core.messages import HumanMessage
 
-def run_openai_agent( questions: list[str]):
+def run_openai_agent( assistant_id: str, questions: list[str]):
     """
     Runs an OpenAI assistant to answer a list of questions using RAG capabilities. It might be
     possible to use this to get the retrieved documents as well.
@@ -27,7 +30,6 @@ def run_openai_agent( questions: list[str]):
     """
     responses=[]
     
-    assistant_id = os.getenv("OPENAI_ASSISTANT_ID")
     client = OpenAI()
     for question in questions:
         thread = client.beta.threads.create()

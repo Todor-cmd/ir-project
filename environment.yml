@@ -1,4 +1,4 @@
-name:ir-env
+name: ir-env
 channels:
   - conda-forge
   - defaults
@@ -14,5 +14,6 @@ dependencies:
   - langchain-openai
   - langchain-community
   - langchain-core
+  - llama-index
 
 

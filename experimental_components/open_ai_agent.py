@@ -9,10 +9,10 @@ load_dotenv()
 
 class OpenAIAssistant:
     def __init__(self, model="gpt-4o") -> None:
-        self.client = OpenAI()
         self.model = model
-        self.file_ids = []
-        self.uploaded_docs = []
+        self.client = OpenAI()
+        self.vector_store_id = os.getenv("OPENAI_VECTOR_STORE_ID")
+
         
     def load_documents(self, documents):
         """Load documents by uploading them to OpenAI.
@@ -21,14 +21,21 @@ class OpenAIAssistant:
             documents: List of document strings
         """
         # Clean up any previously uploaded files
-        for file_id in self.file_ids:
+        file_ids = self.client.vector_stores.files.list(
+            vector_store_id=self.vector_store_id
+        )
+        print(f"Deleting stored files")
+        for file in file_ids:
+            print(f"Deleting file {file.id}")
             try:
-                self.client.files.delete(file_id=file_id)
+                self.client.vector_stores.files.delete(
+                    vector_store_id=self.vector_store_id,
+                    file_id=file.id
+                )
             except Exception as e:
-                print(f"Error deleting file {file_id}: {e}")
+                print(f"Error deleting file {file}: {e}")
         
         self.file_ids = []
-        self.uploaded_docs = documents
         
         # Upload each document as a separate file
         for i, doc in enumerate(documents):
@@ -40,13 +47,19 @@ class OpenAIAssistant:
             with open(temp_path, "rb") as f:
                 file = self.client.files.create(
                     file=f,
-                    purpose="file-search"  # This is the correct purpose for file search
+                    purpose="user_data"
                 )
                 self.file_ids.append(file.id)
             
             # Clean up temp file
             os.unlink(temp_path)
+        
+        self.client.vector_stores.file_batches.create_and_poll(
+            vector_store_id=self.vector_store_id,
+            file_ids=self.file_ids
+        )
             
+        self.uploaded_docs = documents
         print(f"Uploaded {len(self.file_ids)} documents for file search")
     
     def get_most_relevant_docs(self, query):
@@ -58,41 +71,21 @@ class OpenAIAssistant:
         Returns:
             List of relevant document strings
         """
-        if not self.file_ids:
-            raise ValueError("No documents have been loaded")
         
-        # Use the beta.file_search.create endpoint for retrieval
-        response = self.client.beta.file_search.create(
+        response = self.client.vector_stores.search(
             query=query,
-            file_ids=self.file_ids,
-            max_results=5  # Adjust as needed
+            vector_store_id=self.vector_store_id,
+            max_num_results=20,
+            rewrite_query=True
         )
         
         retrieved_docs = []
-        file_id_to_index = {file_id: idx for idx, file_id in enumerate(self.file_ids)}
+        for file in response.data:
+            for content_item in file.content:
+                # Access attributes directly since we're working with Pydantic models
+                if content_item.type == "text":
+                    retrieved_docs.append(content_item.text)
         
-        # Process the search results
-        for result in response.file_results:
-            file_id = result.file_id
-            texts = []
-            
-            # Collect all text snippets from this file
-            for citation in result.citations:
-                texts.append(citation.text)
-            
-            # If we can match the file_id to our original documents, use the full document
-            if file_id in file_id_to_index:
-                doc_index = file_id_to_index[file_id]
-                if doc_index < len(self.uploaded_docs):
-                    retrieved_docs.append(self.uploaded_docs[doc_index])
-            # Otherwise, use the concatenated text snippets as a fallback
-            elif texts:
-                retrieved_docs.append("\n".join(texts))
-        
-        # If no documents were retrieved, return the first document as fallback
-        if not retrieved_docs and self.uploaded_docs:
-            retrieved_docs = [self.uploaded_docs[0]]
-            
         return retrieved_docs
         
     def generate_answer(self, query, relevant_docs):

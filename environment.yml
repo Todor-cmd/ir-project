@@ -19,6 +19,9 @@ dependencies:
   - llama-index
   - python-dotenv
   - rank-bm25
+  - huggingface_hub
+  - datasets
   - faiss-cpu
   - pip
   - pip:
+    - ragas

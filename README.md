@@ -7,7 +7,9 @@ Insall dependencies via Conda:
 conda env create -f environment.yml
 ```
 
-Configure you '.env' with your api keys.
+Configure you '.env' with your api keys. The keys you need are:
+- OPENAI_API_KEY
+- OPENAI_VECTOR_STORE_ID
 
 ## Upload data to vector 
 This experiment utilitses too vector stores. To vectorize the data to these stores so it can be accessed during the final experiments run:
@@ -22,7 +24,7 @@ python experiment.py
 ```
 
 ## Results 
-The results will be generated in the results directory. And can to generate visualisations also in the results directory run:
+The results will be generated in the results directory. And can to generate visualisations for comparisons also in the results directory run:
 ```bash
 python generate_result_visualisations.py
 ```

@@ -1,0 +1,129 @@
+import os
+import time
+import tempfile
+from dotenv import load_dotenv
+import json
+from openai import OpenAI
+
+load_dotenv()
+
+class OpenAIAssistant:
+    def __init__(self, model="gpt-4o") -> None:
+        self.client = OpenAI()
+        self.model = model
+        self.file_ids = []
+        self.uploaded_docs = []
+        
+    def load_documents(self, documents):
+        """Load documents by uploading them to OpenAI.
+        
+        Args:
+            documents: List of document strings
+        """
+        # Clean up any previously uploaded files
+        for file_id in self.file_ids:
+            try:
+                self.client.files.delete(file_id=file_id)
+            except Exception as e:
+                print(f"Error deleting file {file_id}: {e}")
+        
+        self.file_ids = []
+        self.uploaded_docs = documents
+        
+        # Upload each document as a separate file
+        for i, doc in enumerate(documents):
+            with tempfile.NamedTemporaryFile(mode="w+", suffix=".txt", delete=False) as temp:
+                temp.write(doc)
+                temp_path = temp.name
+            
+            # Upload file to OpenAI with file-search purpose
+            with open(temp_path, "rb") as f:
+                file = self.client.files.create(
+                    file=f,
+                    purpose="file-search"  # This is the correct purpose for file search
+                )
+                self.file_ids.append(file.id)
+            
+            # Clean up temp file
+            os.unlink(temp_path)
+            
+        print(f"Uploaded {len(self.file_ids)} documents for file search")
+    
+    def get_most_relevant_docs(self, query):
+        """Retrieve the most relevant documents for a query using file_search.
+        
+        Args:
+            query: The query string
+            
+        Returns:
+            List of relevant document strings
+        """
+        if not self.file_ids:
+            raise ValueError("No documents have been loaded")
+        
+        # Use the beta.file_search.create endpoint for retrieval
+        response = self.client.beta.file_search.create(
+            query=query,
+            file_ids=self.file_ids,
+            max_results=5  # Adjust as needed
+        )
+        
+        retrieved_docs = []
+        file_id_to_index = {file_id: idx for idx, file_id in enumerate(self.file_ids)}
+        
+        # Process the search results
+        for result in response.file_results:
+            file_id = result.file_id
+            texts = []
+            
+            # Collect all text snippets from this file
+            for citation in result.citations:
+                texts.append(citation.text)
+            
+            # If we can match the file_id to our original documents, use the full document
+            if file_id in file_id_to_index:
+                doc_index = file_id_to_index[file_id]
+                if doc_index < len(self.uploaded_docs):
+                    retrieved_docs.append(self.uploaded_docs[doc_index])
+            # Otherwise, use the concatenated text snippets as a fallback
+            elif texts:
+                retrieved_docs.append("\n".join(texts))
+        
+        # If no documents were retrieved, return the first document as fallback
+        if not retrieved_docs and self.uploaded_docs:
+            retrieved_docs = [self.uploaded_docs[0]]
+            
+        return retrieved_docs
+        
+    def generate_answer(self, query, relevant_docs):
+        """Generate an answer for a query based on the relevant documents.
+        
+        Args:
+            query: The query string
+            relevant_docs: List of relevant document strings
+            
+        Returns:
+            Generated answer string
+        """
+        # Combine the relevant docs into a prompt
+        docs_text = "\n\n---\n\n".join(relevant_docs)
+        
+        # Use chat completions API for the generation part
+        response = self.client.chat.completions.create(
+            model=self.model,
+            messages=[
+                {"role": "system", "content": "You are a helpful assistant that answers questions based ONLY on the provided documents."},
+                {"role": "user", "content": f"Use ONLY the following information to answer the question, and cite your sources.\n\nINFORMATION:\n{docs_text}\n\nQUESTION: {query}"}
+            ]
+        )
+        
+        return response.choices[0].message.content
+
+if __name__ == "__main__":
+    agent = OpenAIAssistant()
+    agent.load_documents(["The sun is blue. And thats a fact."])
+    docs = agent.get_most_relevant_docs("What color is the sun?")
+    print(docs)
+    answer = agent.generate_answer("What color is the sun?", docs)
+    print(answer)
+    

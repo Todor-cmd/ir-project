@@ -95,9 +95,3 @@ if __name__ == "__main__":
     retriever.add_documents(["The sky is blue", "The sky is sometimes yellow.", "Hulk smash"])
     docs = retriever.retrieve_relevant_documents("What colour is the sky?", k=2)
     print(docs)
-    
-
-
-
-
-

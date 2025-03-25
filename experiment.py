@@ -6,11 +6,9 @@ from ragas import EvaluationDataset
 from datasets import load_dataset
 import os
 from experimental_components.custom_agent import CustomAgent
-from experimental_components.custom_retrieval import CustomBM25Retriever
+from experimental_components.custom_retrievers import CustomBM25Retriever
 from experimental_components.open_ai_agent import OpenAIAssistant
 from langchain_openai import ChatOpenAI
-import pandas as pd
-
 
 def prepare_hotpotqa_samples(num_samples=5):
     """
@@ -106,6 +104,7 @@ def generate_evaluations(rag, sample_docs, sample_queries, expected_responses, s
     print(evaluations)
     
     # Save the evaluation results as a simple CSV
+    import pandas as pd
     # Convert dictionary to a DataFrame with a single row
     eval_df = pd.DataFrame([evaluations])
     eval_df.to_csv(f"{save_path}/evaluation_results.csv", index=False)

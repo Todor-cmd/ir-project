@@ -5,6 +5,8 @@ from langchain_core.language_models.llms import BaseLLM
 from ragas import EvaluationDataset
 from datasets import load_dataset
 import os
+from experimental_components.custom_agent import CustomAgent
+from experimental_components.custom_retrieval import CustomBM25Retriever
 from experimental_components.open_ai_agent import OpenAIAssistant
 from langchain_openai import ChatOpenAI
 
@@ -76,10 +78,11 @@ def generate_evaluations(rag, sample_docs, sample_queries, expected_responses, s
     for query, reference in zip(sample_queries, expected_responses):
         relevant_docs = rag.get_most_relevant_docs(query)
         response = rag.generate_answer(query, relevant_docs)
+        
         dataset.append(
             {
                 "user_input": query,
-                "retrieved_contexts": relevant_docs,
+                "retrieved_contexts": [node.node.text for node in relevant_docs],
                 "response": response,
                 "reference": reference
             }
@@ -118,7 +121,10 @@ def run_experiment():
     sample_docs, sample_queries, expected_responses = prepare_hotpotqa_samples(5)
     
     # Initialize the RAG system (using OpenAI in this example)
-    rag = OpenAIAssistant(model="gpt-4o")
+    rag = CustomAgent(
+        llm=ChatOpenAI(model="gpt-4o"),
+        retriever=CustomBM25Retriever()
+    )
     
     # Run evaluations
     generate_evaluations(

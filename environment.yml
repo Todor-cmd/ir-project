@@ -16,12 +16,14 @@ dependencies:
   - langchain-community
   - langchain-core
   - langchain-anthropic
-  - llama-index
   - python-dotenv
   - rank-bm25
   - huggingface_hub
   - datasets
   - faiss-cpu
+  - pinecone
   - pip
   - pip:
     - ragas
+    - llama-index-vector-stores-pinecone
+    - llama-index-embeddings-openai

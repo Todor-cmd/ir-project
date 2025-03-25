@@ -12,14 +12,8 @@ class OpenAIAssistant:
         self.model = model
         self.client = OpenAI()
         self.vector_store_id = os.getenv("OPENAI_VECTOR_STORE_ID")
-
         
-    def load_documents(self, documents):
-        """Load documents by uploading them to OpenAI.
-        
-        Args:
-            documents: List of document strings
-        """
+    def delete_all_documents(self):
         # Clean up any previously uploaded files
         file_ids = self.client.vector_stores.files.list(
             vector_store_id=self.vector_store_id
@@ -34,8 +28,15 @@ class OpenAIAssistant:
                 )
             except Exception as e:
                 print(f"Error deleting file {file}: {e}")
+
         
-        self.file_ids = []
+    def load_documents(self, documents):
+        """Load documents by uploading them to OpenAI.
+        
+        Args:
+            documents: List of document strings
+        """
+        self.delete_all_documents()
         
         # Upload each document as a separate file
         for i, doc in enumerate(documents):

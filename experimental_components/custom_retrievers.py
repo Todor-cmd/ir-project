@@ -1,0 +1,103 @@
+import os
+from typing import List, Optional
+
+from dotenv import load_dotenv
+load_dotenv()
+
+from pinecone import Pinecone
+from pinecone import ServerlessSpec
+
+from llama_index.core import VectorStoreIndex, StorageContext, Document
+from llama_index.vector_stores.pinecone import PineconeVectorStore
+from llama_index.core.retrievers import VectorIndexRetriever
+
+class PineconeRetriever:
+    def __init__(self):
+        """Initialize the PineconeRetriever with Pinecone credentials."""
+
+        # Initialize Pinecone
+        self.pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
+        self.pc_index = self.pc.Index(host=os.getenv("PINECONE_HOST"))
+        
+        # Setup vector store and storage context
+        self.vector_store = PineconeVectorStore(
+            index=self.pc_index,
+            index_name=os.getenv("PINECONE_INDEX_NAME")
+        )
+        self.storage_context = StorageContext.from_defaults(vector_store=self.vector_store)
+        
+        # Create index
+        self.index = VectorStoreIndex.from_vector_store(
+            vector_store=self.vector_store,
+            storage_context=self.storage_context
+        )
+        
+    def delete_all_documents(self) -> None:
+        """Delete all documents from the Pinecone vector store."""
+        # Check if index has any vectors
+        stats = self.pc_index.describe_index_stats()
+        if stats.total_vector_count > 0:
+            self.vector_store.clear()
+            print(f"Cleared {stats.total_vector_count} vectors from index")
+        else:
+            print("Index is already empty")
+        
+    def add_documents(self, documents: List[str]) -> None:
+        """Add documents to the Pinecone index.
+        
+        Args:
+            documents: List of Document objects to add to the index
+        """
+        # Convert strings to Document objects if needed
+        doc_objects = [
+            doc if isinstance(doc, Document) else Document(text=doc)
+            for doc in documents
+        ]
+        
+        # Add documents to existing index
+        self.index.refresh_ref_docs(doc_objects)
+        
+        print(f"Added {len(documents)} documents to Pinecone index")
+    
+    def retrieve_relevant_documents(self, query: str, k: int = 5):
+        """Retrieve relevant documents given a query.
+        
+        Args:
+            query: The query string
+            k: Number of documents to retrieve (default: 5)
+            
+        Returns:
+            List of retrieved Node objects containing the relevant documents
+        """
+        # Create retriever with specified parameters
+        retriever = VectorIndexRetriever(
+            index=self.index,
+            similarity_top_k=k,
+        )
+        # Retrieve relevant documents
+        retrieved_nodes = retriever.retrieve(query)
+        
+        # Print the actual texts for debugging
+        retrieved_texts = [node.text for node in retrieved_nodes]
+            
+        return retrieved_texts
+    
+#TODO Implement this retriever
+class HybridBM25Retriever:
+    def __init__(self):
+        pass
+    
+
+    
+if __name__ == "__main__":
+    retriever = PineconeRetriever()
+    retriever.delete_all_documents()
+    retriever.add_documents(["The sky is blue", "The sky is sometimes yellow.", "Hulk smash"])
+    docs = retriever.retrieve_relevant_documents("What colour is the sky?", k=2)
+    print(docs)
+    
+
+
+
+
+

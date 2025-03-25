@@ -5,12 +5,14 @@ from ragas.metrics import LLMContextRecall, Faithfulness, FactualCorrectness
 from langchain_core.language_models.llms import BaseLLM
 from ragas import EvaluationDataset
 
-def generate_evaluations(rag, sample_queries, expected_responses, save_path):
+def generate_evaluations(rag, sample_docs, sample_queries, expected_responses, save_path):
     llm = BaseLLM() # TODO: Implement the LLM to use as judge for evaluation
 
     evaluator_llm = LangchainLLMWrapper(llm)
 
     dataset = []
+    
+    rag.load_documents(sample_docs) # This is currently missing in main aswell as the sample_docs parameter
 
     for query,reference in zip(sample_queries,expected_responses):
 

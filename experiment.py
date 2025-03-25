@@ -79,9 +79,11 @@ def generate_evaluations(rag, sample_docs, sample_queries, expected_responses, s
         relevant_docs = rag.get_most_relevant_docs(query)
         response = rag.generate_answer(query, relevant_docs)
         
+        
         dataset.append(
             {
                 "user_input": query,
+                "retrieved_contexts": [node.node.text for node in relevant_docs],
                 "retrieved_contexts": [node.node.text for node in relevant_docs],
                 "response": response,
                 "reference": reference

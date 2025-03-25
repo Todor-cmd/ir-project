@@ -88,7 +88,7 @@ class PineconeRetriever:
             
         return retrieved_texts
     
-#TODO Implement this retriever
+#TODO Make retriever Hybrid (Now it is only BM25)
 class HybridBM25Retriever:
     documents: List[Document] = Field(default_factory=list)
     nodes: Optional[List] = Field(default_factory=list)

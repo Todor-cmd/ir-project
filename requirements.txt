@@ -18,5 +18,6 @@ huggingface_hub
 datasets
 faiss-cpu
 ragas
+pinecone
 llama-index-vector-stores-pinecone
 llama-index-embeddings-openai

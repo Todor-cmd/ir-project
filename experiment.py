@@ -6,7 +6,7 @@ from ragas import EvaluationDataset
 from datasets import load_dataset
 import os
 from experimental_components.custom_agent import CustomAgent
-from experimental_components.custom_retrievers import CustomBM25Retriever
+from experimental_components.custom_retrievers import HybridBM25Retriever
 from experimental_components.open_ai_agent import OpenAIAssistant
 from langchain_openai import ChatOpenAI
 
@@ -79,12 +79,10 @@ def generate_evaluations(rag, sample_docs, sample_queries, expected_responses, s
         relevant_docs = rag.get_most_relevant_docs(query)
         response = rag.generate_answer(query, relevant_docs)
         
-        
         dataset.append(
             {
                 "user_input": query,
-                "retrieved_contexts": [node.node.text for node in relevant_docs],
-                "retrieved_contexts": [node.node.text for node in relevant_docs],
+                "retrieved_contexts": relevant_docs,
                 "response": response,
                 "reference": reference
             }
@@ -125,7 +123,7 @@ def run_experiment():
     # Initialize the RAG system (using OpenAI in this example)
     rag = CustomAgent(
         llm=ChatOpenAI(model="gpt-4o"),
-        retriever=CustomBM25Retriever()
+        retriever=HybridBM25Retriever()
     )
     
     # Run evaluations

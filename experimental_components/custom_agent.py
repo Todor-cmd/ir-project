@@ -19,7 +19,7 @@ class CustomAgent:
         
     def generate_answer(self, query, relevant_docs):
         """Generate an answer using the LLM based on relevant documents"""
-        context = "\n\n".join([doc.page_content for doc in relevant_docs])
+        context = "\n\n".join([doc for doc in relevant_docs])
         
         system_prompt = f"""You are a helpful AI assistant. Use the following context to answer the user's question:
         
@@ -33,4 +33,4 @@ class CustomAgent:
         ]
         
         response = self.llm.invoke(messages)
-        return response
+        return response.content

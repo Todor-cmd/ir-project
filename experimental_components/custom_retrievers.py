@@ -91,6 +91,7 @@ class PineconeRetriever:
             
         return retrieved_texts
     
+# TODO: Use QueryFusionRetriever for this
 class HybridBM25Retriever:
     documents: List[Document] = Field(default_factory=list)
     nodes: Optional[List] = Field(default_factory=list)
@@ -184,6 +185,7 @@ class HybridBM25Retriever:
         sorted_results = sorted(merged_scores.items(), key=lambda x: x[1], reverse=True)
         
         return [doc for doc, _ in sorted_results]
+ 
     
 
     

@@ -4,6 +4,7 @@ from typing import List, Optional
 from dotenv import load_dotenv
 load_dotenv()
 
+from networkx import nodes
 from pinecone import Pinecone
 from pinecone import ServerlessSpec
 from pinecone import Pinecone
@@ -12,7 +13,8 @@ from pinecone import ServerlessSpec
 from llama_index.core import VectorStoreIndex, StorageContext, Document
 from llama_index.core.node_parser import SentenceSplitter
 from llama_index.vector_stores.pinecone import PineconeVectorStore
-from llama_index.core.retrievers import VectorIndexRetriever
+from llama_index.core.retrievers import VectorIndexRetriever, QueryFusionRetriever
+from llama_index.core.storage.docstore import SimpleDocumentStore
 
 from typing import List, Optional
 from pydantic import Field
@@ -98,6 +100,7 @@ class HybridBM25Retriever:
     dense_retriever: Optional[VectorIndexRetriever] = None
     vector_store: Optional[PineconeVectorStore] = None
     embedding_model: Optional[OpenAIEmbedding] = None
+    index: Optional[VectorStoreIndex] = None
 
     def __init__(self, documents=[]):
         super().__init__()
@@ -110,13 +113,8 @@ class HybridBM25Retriever:
             index=self.pc_index,
             index_name=os.getenv("PINECONE_INDEX_NAME")
         )
-        self.storage_context = StorageContext.from_defaults(vector_store=self.vector_store)
         
-        # Create index
-        self.index = VectorStoreIndex.from_vector_store(
-            vector_store=self.vector_store,
-            storage_context=self.storage_context
-        )
+        self.index = None
         self.documents = documents
         self.nodes = None
         self.bm25_retriever = None
@@ -141,48 +139,43 @@ class HybridBM25Retriever:
             doc if isinstance(doc, Document) else Document(text=doc)
             for doc in documents
         ]
-        self.documents = doc_objects
-        
-        self.index.refresh_ref_docs(doc_objects)
+        self.documents.extend(doc_objects)
         
         print(f"Added {len(documents)} documents to Pinecone index")
         splitter = SentenceSplitter(chunk_size=512)
         parsed_docs = [Document(text=doc) for doc in documents]
         self.nodes = splitter.get_nodes_from_documents(parsed_docs)
+        
+        self.docstore = SimpleDocumentStore()
+        self.docstore.add_documents(self.nodes)
+
+        self.storage_context = StorageContext.from_defaults(
+            docstore=self.docstore, vector_store=self.vector_store)
+        
+        # Create index
+        self.index = VectorStoreIndex(
+            nodes=self.nodes,
+            storage_context=self.storage_context
+        )
     
     def get_relevant_documents(self, query, k=5, alpha=0.5):
         """Retrieve documents using BM25 and dense retrieval, then merge scores."""
         
-        # BM25 Retriever
-        self.bm25_retriever = BM25Retriever.from_defaults(nodes=self.nodes, similarity_top_k=k)
-
-        # Dense Retriever
-        self.dense_retriever = VectorIndexRetriever(
-            index=self.index,
-            similarity_top_k=k,
+        retriever = QueryFusionRetriever(
+            [
+                self.index.as_retriever(similarity_top_k=k),
+                BM25Retriever.from_defaults(
+                    docstore=self.index.docstore, similarity_top_k=k
+                ),
+            ],
+            num_queries=1,
+            use_async=True,
         )
         
-        if len(self.documents) == 0:
-            raise ValueError("No documents loaded")
-
-        # Retrieve from BM25
-        bm25_results = self.bm25_retriever.retrieve(query)
-        bm25_dict = {doc.node.text: doc.score for doc in bm25_results}
-
-        # Retrieve from Dense Retriever
-        dense_results = self.dense_retriever.retrieve(query)
-        dense_dict = {doc.node.text: doc.score for doc in dense_results}
-
-        # Merge results with weighted sum
-        merged_scores = {}
-        for text in set(bm25_dict.keys()).union(dense_dict.keys()):
-            bm25_score = bm25_dict.get(text, 0)
-            dense_score = dense_dict.get(text, 0)
-            merged_scores[text] = alpha * bm25_score + (1 - alpha) * dense_score
-
-        # Sort results by merged score
-        sorted_results = sorted(merged_scores.items(), key=lambda x: x[1], reverse=True)
-        
+        # Retrieve documents
+        retrieved_nodes = retriever.retrieve(query)
+        retrieved_dict = {doc.node.text: doc.score for doc in retrieved_nodes}
+        sorted_results = sorted(retrieved_dict.items(), key=lambda x: x[1], reverse=True)
         return [doc for doc, _ in sorted_results]
     
 

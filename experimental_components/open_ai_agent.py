@@ -13,6 +13,13 @@ class OpenAIAssistant:
         self.client = OpenAI()
         self.vector_store_id = os.getenv("OPENAI_VECTOR_STORE_ID")
         
+    def delete_all_files(self):
+        file_ids = self.client.files.list()
+           
+        for file in file_ids.data:
+            print(f"Deleting file {file.id}")
+            self.client.files.delete(file_id=file.id)
+        
     def delete_all_documents(self):
         # Clean up any previously uploaded files
         file_ids = self.client.vector_stores.files.list(
@@ -37,6 +44,7 @@ class OpenAIAssistant:
             documents: List of document strings
         """
         self.delete_all_documents()
+        self.delete_all_files()
         
         # Upload each document as a separate file
         for i, doc in enumerate(documents):
@@ -115,9 +123,5 @@ class OpenAIAssistant:
 
 if __name__ == "__main__":
     agent = OpenAIAssistant()
-    agent.load_documents(["The sun is blue. And thats a fact."])
-    docs = agent.get_most_relevant_docs("What color is the sun?")
-    print(docs)
-    answer = agent.generate_answer("What color is the sun?", docs)
-    print(answer)
+    # Can test the functions here if you want
     

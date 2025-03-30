@@ -27,3 +27,4 @@ dependencies:
     - ragas
     - llama-index-vector-stores-pinecone
     - llama-index-embeddings-openai
+    - pypdf

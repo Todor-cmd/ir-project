@@ -95,7 +95,7 @@ def generate_evaluations(rag, sample_docs, sample_queries, expected_responses, s
     
     rag.load_documents(sample_docs)
 
-    for query, reference in zip(sample_queries, expected_responses):
+    for query, reference in zip(sample_queries, expected_responses, ):
         relevant_docs = rag.get_most_relevant_docs(query)
         response = rag.generate_answer(query, relevant_docs)
         
@@ -105,6 +105,7 @@ def generate_evaluations(rag, sample_docs, sample_queries, expected_responses, s
                 "retrieved_contexts": relevant_docs,
                 "response": response,
                 "reference": reference
+                "reference_contexts": 
             }
         )
     

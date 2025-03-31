@@ -179,7 +179,8 @@ class HybridBM25Retriever:
         sorted_results = sorted(retrieved_dict.items(), key=lambda x: x[1], reverse=True)
         return [doc for doc, _ in sorted_results]
  
-    
+class CustomQueryEngine:
+    def __init__(self, index: VectorStoreIndex):
 
     
 if __name__ == "__main__":

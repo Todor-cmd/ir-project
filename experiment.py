@@ -1,6 +1,6 @@
 from ragas import evaluate
 from ragas.llms import LangchainLLMWrapper
-from ragas.metrics import LLMContextRecall, Faithfulness, LLMContextPrecisionWithoutReference, FactualCorrectness, ContextEntityRecall, NoiseSensitivity, ResponseRelevancy
+from ragas.metrics import ContextRecall, Faithfulness, ContextPrecision, FactualCorrectness, ContextEntityRecall, NoiseSensitivity, ResponseRelevancy
 from langchain_core.language_models.llms import BaseLLM
 from ragas import EvaluationDataset
 from datasets import load_dataset
@@ -8,7 +8,7 @@ import os
 from experimental_components.custom_agent import CustomAgent
 from experimental_components.custom_retrievers import HybridBM25Retriever
 from experimental_components.open_ai_agent import OpenAIAssistant
-from langchain_openai import ChatOpenAI
+from langchain_openai import ChatGroq
 
 import pandas as pd
 
@@ -87,15 +87,16 @@ def generate_evaluations(rag, sample_docs, sample_queries, expected_responses, s
         save_path: Path to save evaluation results
     """
     # Initialize evaluation LLM
-    llm = ChatOpenAI(model="gpt-4o")
-    evaluator_llm = LangchainLLMWrapper(llm)
-
+    evaluator_llm = LangchainLLMWrapper(
+        ChatGroq(model="deepseek-r1-distill-qwen-32b", temperature=0.2)
+    )
+    
     # First approach: evaluate using all context documents
     all_context_dataset = []
     
     rag.load_documents(sample_docs)
 
-    for query, reference in zip(sample_queries, expected_responses, ):
+    for query, reference in zip(sample_queries, expected_responses, supporting_facts_list):
         relevant_docs = rag.get_most_relevant_docs(query)
         response = rag.generate_answer(query, relevant_docs)
         
@@ -104,8 +105,8 @@ def generate_evaluations(rag, sample_docs, sample_queries, expected_responses, s
                 "user_input": query,
                 "retrieved_contexts": relevant_docs,
                 "response": response,
-                "reference": reference
-                "reference_contexts": 
+                "reference": reference,
+                "reference_contexts": supporting_facts_list
             }
         )
     
@@ -116,8 +117,8 @@ def generate_evaluations(rag, sample_docs, sample_queries, expected_responses, s
     # Run evaluation with all context documents
     all_context_evaluations = evaluate(
         dataset=all_context_eval_dataset,
-        metrics=[LLMContextPrecisionWithoutReference(),
-                 LLMContextRecall(),
+        metrics=[ContextPrecision(),
+                 ContextRecall(),
                  Faithfulness(),
                  FactualCorrectness(),
                  ContextEntityRecall(),
@@ -133,56 +134,56 @@ def generate_evaluations(rag, sample_docs, sample_queries, expected_responses, s
     all_context_eval_df = pd.DataFrame([all_context_evaluations])
     all_context_eval_df.to_csv(f"{save_path}/all_context_evaluation_results.csv", index=False)
     
-    # Second approach: evaluate using only supporting facts
-    supporting_facts_dataset = []
+    # # Second approach: evaluate using only supporting facts
+    # supporting_facts_dataset = []
     
-    for i, (query, reference, supporting_facts) in enumerate(zip(sample_queries, expected_responses, supporting_facts_list)):
-        # Load just the supporting facts for this query
-        rag.load_documents(supporting_facts)
+    # for i, (query, reference, supporting_facts) in enumerate(zip(sample_queries, expected_responses, supporting_facts_list)):
+    #     # Load just the supporting facts for this query
+    #     rag.load_documents(supporting_facts)
         
-        # Get relevant docs and generate answer
-        relevant_docs = rag.get_most_relevant_docs(query)
-        response = rag.generate_answer(query, relevant_docs)
+    #     # Get relevant docs and generate answer
+    #     relevant_docs = rag.get_most_relevant_docs(query)
+    #     response = rag.generate_answer(query, relevant_docs)
         
-        supporting_facts_dataset.append(
-            {
-                "user_input": query,
-                "retrieved_contexts": relevant_docs,
-                "response": response,
-                "reference": reference
-            }
-        )
+    #     supporting_facts_dataset.append(
+    #         {
+    #             "user_input": query,
+    #             "retrieved_contexts": relevant_docs,
+    #             "response": response,
+    #             "reference": reference
+    #         }
+    #     )
     
-    # Save the supporting facts dataset
-    supporting_facts_eval_dataset = EvaluationDataset.from_list(supporting_facts_dataset)
-    supporting_facts_eval_dataset.to_csv(f"{save_path}/supporting_facts_raw_dataset.csv")
+    # # Save the supporting facts dataset
+    # supporting_facts_eval_dataset = EvaluationDataset.from_list(supporting_facts_dataset)
+    # supporting_facts_eval_dataset.to_csv(f"{save_path}/supporting_facts_raw_dataset.csv")
 
-    # Run evaluation with supporting facts
-    supporting_facts_evaluations = evaluate(
-        dataset=supporting_facts_eval_dataset,
-        metrics=[LLMContextPrecisionWithoutReference(),
-                 LLMContextRecall(),
-                 Faithfulness(),
-                 FactualCorrectness()],
-        llm=evaluator_llm
-    )
+    # # Run evaluation with supporting facts
+    # supporting_facts_evaluations = evaluate(
+    #     dataset=supporting_facts_eval_dataset,
+    #     metrics=[LLMContextPrecisionWithoutReference(),
+    #              LLMContextRecall(),
+    #              Faithfulness(),
+    #              FactualCorrectness()],
+    #     llm=evaluator_llm
+    # )
     
-    print("Supporting facts evaluation results:")
-    print(supporting_facts_evaluations)
+    # print("Supporting facts evaluation results:")
+    # print(supporting_facts_evaluations)
     
-    # Save the supporting facts evaluation results
-    supporting_facts_eval_df = pd.DataFrame([supporting_facts_evaluations])
-    supporting_facts_eval_df.to_csv(f"{save_path}/supporting_facts_evaluation_results.csv", index=False)
+    # # Save the supporting facts evaluation results
+    # supporting_facts_eval_df = pd.DataFrame([supporting_facts_evaluations])
+    # supporting_facts_eval_df.to_csv(f"{save_path}/supporting_facts_evaluation_results.csv", index=False)
     
-    # Compare the results
-    print("Comparison of evaluation results:")
-    comparison = pd.DataFrame({
-        "Metric": all_context_eval_df.columns,
-        "All Context": all_context_eval_df.iloc[0].values,
-        "Supporting Facts": supporting_facts_eval_df.iloc[0].values
-    })
-    comparison.to_csv(f"{save_path}/evaluation_comparison.csv", index=False)
-    print(comparison)
+    # # Compare the results
+    # print("Comparison of evaluation results:")
+    # comparison = pd.DataFrame({
+    #     "Metric": all_context_eval_df.columns,
+    #     "All Context": all_context_eval_df.iloc[0].values,
+    #     "Supporting Facts": supporting_facts_eval_df.iloc[0].values
+    # })
+    # comparison.to_csv(f"{save_path}/evaluation_comparison.csv", index=False)
+    # print(comparison)
     
     print(f"Evaluation results saved to {save_path}")
 

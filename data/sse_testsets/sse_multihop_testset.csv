@@ -1,0 +1,1371 @@
+user_input,reference,reference_contexts
+What is the difference between spiking neural networks and spiking neuron networks?,"Spiking neural networks (SNNs) are a type of neural network model that processes information using spikes, similar to biological neurons. Spiking neuron networks refer to the individual components within these networks, focusing on how each neuron processes and communicates information through spikes.","<1-hop>
+
+Encoding strategies
+We considered single neurons with Boolean output (‘spike’=1 or ‘no spike’=0).
+How should we encode information about 'features' in a large network with many spikes?
+https://analyticsindiamag.com/a-tutorial-on-spiking-neural-networks-for-beginners/
+Elephant?
+https://www.nationalgeographic.com/anim
+als/mammals/facts/african-elephant"
+What is the difference between spiking neural networks and spiking neuron networks?,"Spiking neural networks (SNNs) are a type of neural network model that processes information using spikes, similar to biological neurons. Spiking neuron networks refer to the individual components within these networks, focusing on how each neuron processes and communicates information through spikes.","<2-hop>
+
+References
+1) McCulloch WS, Pitts W. A logical calculus of the ideas immanent in nervous activity. The Bulletin of Mathematical Biophysics. 1943. 5(4):115-33. 
+https://link.springer.com/content/pdf/10.1007/BF02478259.pdf
+2) Pitts W, McCulloch WS. How we know universals the perception of auditory and visual forms. The Bulletin of Mathematical Biophysics. 1947. 
+9(3):127-47. https://link.springer.com/content/pdf/10.1007/BF02478291.pdf
+3) Abraham TH. (Physio) logical circuits: The intellectual origins of the McCulloch–Pitts neural networks. Journal of the History of the Behavioral 
+Sciences. 2002. 38(1):3-25. https://onlinelibrary.wiley.com/doi/pdf/10.1002/jhbs.1094
+4) Rosenblatt F. The perceptron: a probabilistic model for information storage and organization in the brain. Psychological review. 1958. 65(6):386. 
+(not publicly available) doi:10.1037/h0042519
+5) Tappert CC. Who is the father of deep learning? International Conference on Computational Science and Computational Intelligence (CSCI) 2019. 
+https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9070967
+6) https://github.com/idsc-frazzoli/retina
+7) Maass W. Networks of spiking neurons: the third generation of neural network models. Neural networks. 1997. 10(9):1659-71. 
+https://igi-web.tugraz.at/people/maass/psfiles/85a.pdf
+8) Paugam-Moisy H, Bohte SM, ""Computing with spiking neuron networks."" in Handbook of Natural Computing (2012). 
+https://homepages.cwi.nl/~sbohte/publication/paugam_moisy_bohte_SNNChapter.pdf
+9) Kheradpisheh SR, Ganjtabesh M, Thorpe SJ, Masquelier T. STDP-based spiking deep convolutional neural networks for object recognition. 
+Neural Networks. 2018 Mar 1;99:56-67. https://www-sciencedirect-com.tudelft.idm.oclc.org/science/article/pii/S0893608017302903
+10) Gütig R, Sompolinsky H. The tempotron: a neuron that learns spike timing–based decisions. Nature neuroscience. 2006 Mar;9(3):420-8. 
+http://mcn2016public.pbworks.com/w/file/fetch/137818197/Gutig_R_The%20tempotron_Nature%20Neuroscience.pdf
+11) Neftci EO, Mostafa H, Zenke F. Surrogate gradient learning in spiking neural networks: Bringing the power of gradient-based optimization to 
+SNNs. IEEE Signal Processing Magazine. 2019. 36(6):51-63. https://ieeexplore.ieee.org/abstract/document/8891809
+12) https://www.intel.com/content/www/us/en/research/neuromorphic-computing.html
+13) https://neuronaldynamics.epfl.ch/online/Ch1.S3.html
+14) Kron G. Numerical solution of ordinary and partial differential equations by means of equivalent circuits. Journal of Applied Physics. 1945. 
+16(3):172-86. https://aip.scitation.org/doi/abs/10.1063/1.1707568"
+What are the challenges in creating a dataset of government-developed OS software?,"Creating a dataset of government-developed OS software faces challenges such as a lack of incentive to make the software popular and language barriers, which hinder comprehensive understanding of the software's buildability, open development history, and requirements documentation.","<1-hop>
+
+B6. Dataset of government-developed OS software
+• Governments develop & use software for supporting society 
+Open-source development & policies are on the rise
+• But studying government software is diﬃcult b/c we don’t know what is out 
+there 
+→ Lack of incentive to make popular  
+→ Language barriers
+• Create a comprehensive dataset, incl. data to understand state of software: 
+buildable?, open dev. history?, requirements documentation?
+• Could start with NL, but including your / other countries greatly appreciated!"
+What are the challenges in creating a dataset of government-developed OS software?,"Creating a dataset of government-developed OS software faces challenges such as a lack of incentive to make the software popular and language barriers, which hinder comprehensive understanding of the software's buildability, open development history, and requirements documentation.","<2-hop>
+
+Project ideas
+• B1. Measure energy consumption of single JUnit tests 
+• B2. Study test generation energy consumption
+• B3. Energy proﬁling of static analysis tools
+• B4. Detailed energy proﬁling of build pipelines
+• B5. Tool supporting SusAF workshop / process
+• B6. Dataset of government-developed OS software
+• B7. Queue - but better for the student / TA society
+Quality Assurance & Testing
+Social & Individual  
+Sustainability"
+How can static code analysis in data science projects help in designing more sustainablility-focused data centers?,"Static code analysis in data science projects can help in designing more sustainablility-focused data centers by identifying energy hotspots in the code. This allows developers to review and optimize code that may contribute to higher energy consumption, thereby supporting the development of more efficient and sustainable data centers.","<1-hop>
+
+C6 - Green Shift Left
+• Estimate energy eﬃciency using static code analysis.
+• We don’t need an accurate value.
+• It is useful to know which code is more likely to 
+introduce energy hotspots and that should be 
+reviewed with more attention.
+• Can be scoped to a particular domain (react, php, data 
+science, web, etc., etc.)
+27"
+How can static code analysis in data science projects help in designing more sustainablility-focused data centers?,"Static code analysis in data science projects can help in designing more sustainablility-focused data centers by identifying energy hotspots in the code. This allows developers to review and optimize code that may contribute to higher energy consumption, thereby supporting the development of more efficient and sustainable data centers.","<2-hop>
+
+Why?
+• Throughout your career you might:
+• Design/maintain/contract data centers
+• Set up operations/devops
+• Develop AI for IoT devices
+• Be the next CEO/CTO of a software company
+• Sustainability can be your main role:
+• Green Software Developer
+• Sustainability Consultant
+• Green Advocate 
+• Founder of a Green Tech startup (B2B?)
+28"
+How shuffling reduce risk and EcoAndroid reduce size?,Shuffling reduce risk by controlling external factors like room temperature changes. EcoAndroid reduce size by using features like caching and avoiding graphics and animations.,"<1-hop>
+
+Shuffle 
+🔀
+• It is not a mystery that energy consumption depends on so many factors that 
+it is impossible to control all of them.
+• If you run 30 executions for version A and another batch for version B:
+• External conditions that change over time will have a diﬀerent bias in 
+the 2 versions (e.g., room temperature changes).
+• If you shuﬄe, you reduce this risk.
+11"
+How shuffling reduce risk and EcoAndroid reduce size?,Shuffling reduce risk by controlling external factors like room temperature changes. EcoAndroid reduce size by using features like caching and avoiding graphics and animations.,"<2-hop>
+
+EcoAndroid
+• Plugin for IntelliJ (Android Studio)
+• Dynamic Retry Delay
+• Push Over Poll
+• Reduce Size
+• Cache
+• Avoid Graphics and Animations
+20"
+"What is the biological basis of neuromorphic computing, and how does it differ from conventional neural networks?","Neuromorphic computing is based on the biological principles of the human brain, utilizing physical artificial neurons to perform computations. Unlike conventional neural networks, which rely on traditional computing architectures, neuromorphic systems are designed to mimic the brain's structure and function, enabling more efficient and biologically inspired processing.","<1-hop>
+
+Neuromorphic computing
+Neuromorphic computing is an approach to computing that is inspired by the structure and function of the human brain.
+A neuromorphic computer/chip is any device that uses physical artificial neurons to do computations.
+https://en.wikipedia.org/wiki/Neuromorphic_engineering, https://www.informationweek.com/software-services/what-you-need-to-know-about-neuromorphic-computing"
+"What is the biological basis of neuromorphic computing, and how does it differ from conventional neural networks?","Neuromorphic computing is based on the biological principles of the human brain, utilizing physical artificial neurons to perform computations. Unlike conventional neural networks, which rely on traditional computing architectures, neuromorphic systems are designed to mimic the brain's structure and function, enabling more efficient and biologically inspired processing.","<2-hop>
+
+Reading materials
+Main reading:
+- Section 1 and Section 3.1 of ""Computing with spiking neuron networks."" by Paugam-Moisy H, Bohte SM, in Handbook of natural computing (2012). 
+https://homepages.cwi.nl/~sbohte/publication/paugam_moisy_bohte_SNNChapter.pdf
+- Maass W. Networks of spiking neurons: the third generation of neural network models. Neural networks. 1997. 10(9):1659-71. https://igi-web.tugraz.at/people/maass/psfiles/85a.pdf
+- Neuromorphic computing:
+- Based on biology: Zenke F, Bohté SM, Clopath C, Comşa IM, Göltz J, Maass W, Masquelier T, Naud R, Neftci EO, Petrovici MA, Scherr F. Visualizing a joint future of 
+neuroscience and neuromorphic engineering. Neuron. 2021. 109(4):571-5. https://www.sciencedirect.com/science/article/pii/S089662732100009X
+- How to train modern spiking networks: Neftci EO, Mostafa H, Zenke F. Surrogate gradient learning in spiking neural networks: Bringing the power of gradient-based 
+optimization to spiking neural networks. IEEE Signal Processing Magazine. 2019. 36(6):51-63. https://ieeexplore.ieee.org/abstract/document/8891809
+- Rate-based SNNs: Roy K, Jaiswal A, Panda P. Towards spike-based machine intelligence with neuromorphic computing. Nature. 2019. 575(7784):607-17. 
+https://www.nature.com/articles/s41586-019-1677-2
+Extra reading:
+- Converging history of deep networks and biological systems: Sejnowski TJ. The unreasonable effectiveness of deep learning in artificial intelligence. Proceedings of the National 
+Academy of Sciences. 2020. 117(48):30033-8. https://www.pnas.org/doi/full/10.1073/pnas.1907373117
+- Also an important part of neuromorphic systems and vision → Event Cameras: Gallego G, Delbrück T, Orchard G, Bartolozzi C, Taba B, Censi A, Leutenegger S, Davison AJ, Conradt J, 
+Daniilidis K, Scaramuzza D. Event-based vision: A survey. IEEE transactions on pattern analysis and machine intelligence. 2020. 44(1):154-80. 
+https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9138762
+Basics of 'conventional' neural networks:
+- Sections 4.1 to 4.4 from the book ""Pattern Recognition"" by Theodoridis and Koutroumbas.
+- Subsection 4.1.7 from the book ""Pattern Recognition and Machine Learning"" by Bishop."
+How spiking neural networks relate to McCulloch-Pitts model?,"Spiking neural networks relate to the McCulloch-Pitts model by building upon the foundational concepts of neural computation, where the McCulloch-Pitts model introduced the idea of binary neuron states, which is extended in spiking networks to model more complex information processing through spike timing and patterns.","<1-hop>
+
+Encoding strategies
+We considered single neurons with Boolean output (‘spike’=1 or ‘no spike’=0).
+How should we encode information about 'features' in a large network with many spikes?
+https://analyticsindiamag.com/a-tutorial-on-spiking-neural-networks-for-beginners/
+Elephant?
+https://www.nationalgeographic.com/anim
+als/mammals/facts/african-elephant"
+How spiking neural networks relate to McCulloch-Pitts model?,"Spiking neural networks relate to the McCulloch-Pitts model by building upon the foundational concepts of neural computation, where the McCulloch-Pitts model introduced the idea of binary neuron states, which is extended in spiking networks to model more complex information processing through spike timing and patterns.","<2-hop>
+
+References
+1) McCulloch WS, Pitts W. A logical calculus of the ideas immanent in nervous activity. The Bulletin of Mathematical Biophysics. 1943. 5(4):115-33. 
+https://link.springer.com/content/pdf/10.1007/BF02478259.pdf
+2) Pitts W, McCulloch WS. How we know universals the perception of auditory and visual forms. The Bulletin of Mathematical Biophysics. 1947. 
+9(3):127-47. https://link.springer.com/content/pdf/10.1007/BF02478291.pdf
+3) Abraham TH. (Physio) logical circuits: The intellectual origins of the McCulloch–Pitts neural networks. Journal of the History of the Behavioral 
+Sciences. 2002. 38(1):3-25. https://onlinelibrary.wiley.com/doi/pdf/10.1002/jhbs.1094
+4) Rosenblatt F. The perceptron: a probabilistic model for information storage and organization in the brain. Psychological review. 1958. 65(6):386. 
+(not publicly available) doi:10.1037/h0042519
+5) Tappert CC. Who is the father of deep learning? International Conference on Computational Science and Computational Intelligence (CSCI) 2019. 
+https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9070967
+6) https://github.com/idsc-frazzoli/retina
+7) Maass W. Networks of spiking neurons: the third generation of neural network models. Neural networks. 1997. 10(9):1659-71. 
+https://igi-web.tugraz.at/people/maass/psfiles/85a.pdf
+8) Paugam-Moisy H, Bohte SM, ""Computing with spiking neuron networks."" in Handbook of Natural Computing (2012). 
+https://homepages.cwi.nl/~sbohte/publication/paugam_moisy_bohte_SNNChapter.pdf
+9) Kheradpisheh SR, Ganjtabesh M, Thorpe SJ, Masquelier T. STDP-based spiking deep convolutional neural networks for object recognition. 
+Neural Networks. 2018 Mar 1;99:56-67. https://www-sciencedirect-com.tudelft.idm.oclc.org/science/article/pii/S0893608017302903
+10) Gütig R, Sompolinsky H. The tempotron: a neuron that learns spike timing–based decisions. Nature neuroscience. 2006 Mar;9(3):420-8. 
+http://mcn2016public.pbworks.com/w/file/fetch/137818197/Gutig_R_The%20tempotron_Nature%20Neuroscience.pdf
+11) Neftci EO, Mostafa H, Zenke F. Surrogate gradient learning in spiking neural networks: Bringing the power of gradient-based optimization to 
+SNNs. IEEE Signal Processing Magazine. 2019. 36(6):51-63. https://ieeexplore.ieee.org/abstract/document/8891809
+12) https://www.intel.com/content/www/us/en/research/neuromorphic-computing.html
+13) https://neuronaldynamics.epfl.ch/online/Ch1.S3.html
+14) Kron G. Numerical solution of ordinary and partial differential equations by means of equivalent circuits. Journal of Applied Physics. 1945. 
+16(3):172-86. https://aip.scitation.org/doi/abs/10.1063/1.1707568"
+What is the project idea related to creating a dataset of goverment-developed OS software?,"The project idea is to create a dataset of government-developed OS software, which would help in understanding the state of such software, including whether it is buildable, has open development history, and has requirements documentation.","<1-hop>
+
+B6. Dataset of government-developed OS software
+• Governments develop & use software for supporting society 
+Open-source development & policies are on the rise
+• But studying government software is diﬃcult b/c we don’t know what is out 
+there 
+→ Lack of incentive to make popular  
+→ Language barriers
+• Create a comprehensive dataset, incl. data to understand state of software: 
+buildable?, open dev. history?, requirements documentation?
+• Could start with NL, but including your / other countries greatly appreciated!"
+What is the project idea related to creating a dataset of goverment-developed OS software?,"The project idea is to create a dataset of government-developed OS software, which would help in understanding the state of such software, including whether it is buildable, has open development history, and has requirements documentation.","<2-hop>
+
+Project ideas
+• B1. Measure energy consumption of single JUnit tests 
+• B2. Study test generation energy consumption
+• B3. Energy proﬁling of static analysis tools
+• B4. Detailed energy proﬁling of build pipelines
+• B5. Tool supporting SusAF workshop / process
+• B6. Dataset of government-developed OS software
+• B7. Queue - but better for the student / TA society
+Quality Assurance & Testing
+Social & Individual  
+Sustainability"
+How can static code analysis in data science contribute to the development of more sustainable data centers?,"Static code analysis in data science can contribute to the development of more sustainable data centers by estimating energy efficiency and identifying potential energy hotspots within the code. This approach allows developers to focus on reviewing code segments that are more likely to introduce inefficiencies, thereby optimizing resource usage. By integrating such practices, especially in domains like data science, developers can help create more sustainable solutions, which aligns with broader career goals in sustainability, such as designing or maintaining energy-efficient data centers.","<1-hop>
+
+C6 - Green Shift Left
+• Estimate energy eﬃciency using static code analysis.
+• We don’t need an accurate value.
+• It is useful to know which code is more likely to 
+introduce energy hotspots and that should be 
+reviewed with more attention.
+• Can be scoped to a particular domain (react, php, data 
+science, web, etc., etc.)
+27"
+How can static code analysis in data science contribute to the development of more sustainable data centers?,"Static code analysis in data science can contribute to the development of more sustainable data centers by estimating energy efficiency and identifying potential energy hotspots within the code. This approach allows developers to focus on reviewing code segments that are more likely to introduce inefficiencies, thereby optimizing resource usage. By integrating such practices, especially in domains like data science, developers can help create more sustainable solutions, which aligns with broader career goals in sustainability, such as designing or maintaining energy-efficient data centers.","<2-hop>
+
+Why?
+• Throughout your career you might:
+• Design/maintain/contract data centers
+• Set up operations/devops
+• Develop AI for IoT devices
+• Be the next CEO/CTO of a software company
+• Sustainability can be your main role:
+• Green Software Developer
+• Sustainability Consultant
+• Green Advocate 
+• Founder of a Green Tech startup (B2B?)
+28"
+How EcoAndroid reduce risk by reduce size?,EcoAndroid reduce risk by using Reduce Size feature which help minimize energy consumption and reduce impact of external factors like temperature changes.,"<1-hop>
+
+Shuffle 
+🔀
+• It is not a mystery that energy consumption depends on so many factors that 
+it is impossible to control all of them.
+• If you run 30 executions for version A and another batch for version B:
+• External conditions that change over time will have a diﬀerent bias in 
+the 2 versions (e.g., room temperature changes).
+• If you shuﬄe, you reduce this risk.
+11"
+How EcoAndroid reduce risk by reduce size?,EcoAndroid reduce risk by using Reduce Size feature which help minimize energy consumption and reduce impact of external factors like temperature changes.,"<2-hop>
+
+EcoAndroid
+• Plugin for IntelliJ (Android Studio)
+• Dynamic Retry Delay
+• Push Over Poll
+• Reduce Size
+• Cache
+• Avoid Graphics and Animations
+20"
+What are the practical applications of neuromorphic systems that leverage biological inspiration and advanced training methods for efficient computation?,"Neuromorphic systems, inspired by the human brain, have practical applications such as event-based vision, which is detailed in the reading materials. These systems use advanced training methods like surrogate gradient learning to optimize spiking neural networks, enabling efficient computation and real-world applications.","<1-hop>
+
+Neuromorphic computing
+Neuromorphic computing is an approach to computing that is inspired by the structure and function of the human brain.
+A neuromorphic computer/chip is any device that uses physical artificial neurons to do computations.
+https://en.wikipedia.org/wiki/Neuromorphic_engineering, https://www.informationweek.com/software-services/what-you-need-to-know-about-neuromorphic-computing"
+What are the practical applications of neuromorphic systems that leverage biological inspiration and advanced training methods for efficient computation?,"Neuromorphic systems, inspired by the human brain, have practical applications such as event-based vision, which is detailed in the reading materials. These systems use advanced training methods like surrogate gradient learning to optimize spiking neural networks, enabling efficient computation and real-world applications.","<2-hop>
+
+Reading materials
+Main reading:
+- Section 1 and Section 3.1 of ""Computing with spiking neuron networks."" by Paugam-Moisy H, Bohte SM, in Handbook of natural computing (2012). 
+https://homepages.cwi.nl/~sbohte/publication/paugam_moisy_bohte_SNNChapter.pdf
+- Maass W. Networks of spiking neurons: the third generation of neural network models. Neural networks. 1997. 10(9):1659-71. https://igi-web.tugraz.at/people/maass/psfiles/85a.pdf
+- Neuromorphic computing:
+- Based on biology: Zenke F, Bohté SM, Clopath C, Comşa IM, Göltz J, Maass W, Masquelier T, Naud R, Neftci EO, Petrovici MA, Scherr F. Visualizing a joint future of 
+neuroscience and neuromorphic engineering. Neuron. 2021. 109(4):571-5. https://www.sciencedirect.com/science/article/pii/S089662732100009X
+- How to train modern spiking networks: Neftci EO, Mostafa H, Zenke F. Surrogate gradient learning in spiking neural networks: Bringing the power of gradient-based 
+optimization to spiking neural networks. IEEE Signal Processing Magazine. 2019. 36(6):51-63. https://ieeexplore.ieee.org/abstract/document/8891809
+- Rate-based SNNs: Roy K, Jaiswal A, Panda P. Towards spike-based machine intelligence with neuromorphic computing. Nature. 2019. 575(7784):607-17. 
+https://www.nature.com/articles/s41586-019-1677-2
+Extra reading:
+- Converging history of deep networks and biological systems: Sejnowski TJ. The unreasonable effectiveness of deep learning in artificial intelligence. Proceedings of the National 
+Academy of Sciences. 2020. 117(48):30033-8. https://www.pnas.org/doi/full/10.1073/pnas.1907373117
+- Also an important part of neuromorphic systems and vision → Event Cameras: Gallego G, Delbrück T, Orchard G, Bartolozzi C, Taba B, Censi A, Leutenegger S, Davison AJ, Conradt J, 
+Daniilidis K, Scaramuzza D. Event-based vision: A survey. IEEE transactions on pattern analysis and machine intelligence. 2020. 44(1):154-80. 
+https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9138762
+Basics of 'conventional' neural networks:
+- Sections 4.1 to 4.4 from the book ""Pattern Recognition"" by Theodoridis and Koutroumbas.
+- Subsection 4.1.7 from the book ""Pattern Recognition and Machine Learning"" by Bishop."
+How spiking neural networks used in encoding strategies?,Spiking neural networks use single neurons with Boolean output (‘spike’=1 or ‘no spike’=0) to encode information about 'features' in a large network with many spikes. This approach is supported by foundational works such as McCulloch and Pitts' logical calculus of nervous activity and later developments in spiking neuron models.,"<1-hop>
+
+Encoding strategies
+We considered single neurons with Boolean output (‘spike’=1 or ‘no spike’=0).
+How should we encode information about 'features' in a large network with many spikes?
+https://analyticsindiamag.com/a-tutorial-on-spiking-neural-networks-for-beginners/
+Elephant?
+https://www.nationalgeographic.com/anim
+als/mammals/facts/african-elephant"
+How spiking neural networks used in encoding strategies?,Spiking neural networks use single neurons with Boolean output (‘spike’=1 or ‘no spike’=0) to encode information about 'features' in a large network with many spikes. This approach is supported by foundational works such as McCulloch and Pitts' logical calculus of nervous activity and later developments in spiking neuron models.,"<2-hop>
+
+References
+1) McCulloch WS, Pitts W. A logical calculus of the ideas immanent in nervous activity. The Bulletin of Mathematical Biophysics. 1943. 5(4):115-33. 
+https://link.springer.com/content/pdf/10.1007/BF02478259.pdf
+2) Pitts W, McCulloch WS. How we know universals the perception of auditory and visual forms. The Bulletin of Mathematical Biophysics. 1947. 
+9(3):127-47. https://link.springer.com/content/pdf/10.1007/BF02478291.pdf
+3) Abraham TH. (Physio) logical circuits: The intellectual origins of the McCulloch–Pitts neural networks. Journal of the History of the Behavioral 
+Sciences. 2002. 38(1):3-25. https://onlinelibrary.wiley.com/doi/pdf/10.1002/jhbs.1094
+4) Rosenblatt F. The perceptron: a probabilistic model for information storage and organization in the brain. Psychological review. 1958. 65(6):386. 
+(not publicly available) doi:10.1037/h0042519
+5) Tappert CC. Who is the father of deep learning? International Conference on Computational Science and Computational Intelligence (CSCI) 2019. 
+https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9070967
+6) https://github.com/idsc-frazzoli/retina
+7) Maass W. Networks of spiking neurons: the third generation of neural network models. Neural networks. 1997. 10(9):1659-71. 
+https://igi-web.tugraz.at/people/maass/psfiles/85a.pdf
+8) Paugam-Moisy H, Bohte SM, ""Computing with spiking neuron networks."" in Handbook of Natural Computing (2012). 
+https://homepages.cwi.nl/~sbohte/publication/paugam_moisy_bohte_SNNChapter.pdf
+9) Kheradpisheh SR, Ganjtabesh M, Thorpe SJ, Masquelier T. STDP-based spiking deep convolutional neural networks for object recognition. 
+Neural Networks. 2018 Mar 1;99:56-67. https://www-sciencedirect-com.tudelft.idm.oclc.org/science/article/pii/S0893608017302903
+10) Gütig R, Sompolinsky H. The tempotron: a neuron that learns spike timing–based decisions. Nature neuroscience. 2006 Mar;9(3):420-8. 
+http://mcn2016public.pbworks.com/w/file/fetch/137818197/Gutig_R_The%20tempotron_Nature%20Neuroscience.pdf
+11) Neftci EO, Mostafa H, Zenke F. Surrogate gradient learning in spiking neural networks: Bringing the power of gradient-based optimization to 
+SNNs. IEEE Signal Processing Magazine. 2019. 36(6):51-63. https://ieeexplore.ieee.org/abstract/document/8891809
+12) https://www.intel.com/content/www/us/en/research/neuromorphic-computing.html
+13) https://neuronaldynamics.epfl.ch/online/Ch1.S3.html
+14) Kron G. Numerical solution of ordinary and partial differential equations by means of equivalent circuits. Journal of Applied Physics. 1945. 
+16(3):172-86. https://aip.scitation.org/doi/abs/10.1063/1.1707568"
+What are the challenges in creating a dataset of government-developed OS software?,"Creating a dataset of government-developed OS software faces challenges such as a lack of incentive to make the software popular and language barriers, which hinder comprehensive understanding of the software's buildability, open development history, and requirements documentation.","<1-hop>
+
+B6. Dataset of government-developed OS software
+• Governments develop & use software for supporting society 
+Open-source development & policies are on the rise
+• But studying government software is diﬃcult b/c we don’t know what is out 
+there 
+→ Lack of incentive to make popular  
+→ Language barriers
+• Create a comprehensive dataset, incl. data to understand state of software: 
+buildable?, open dev. history?, requirements documentation?
+• Could start with NL, but including your / other countries greatly appreciated!"
+What are the challenges in creating a dataset of government-developed OS software?,"Creating a dataset of government-developed OS software faces challenges such as a lack of incentive to make the software popular and language barriers, which hinder comprehensive understanding of the software's buildability, open development history, and requirements documentation.","<2-hop>
+
+Project ideas
+• B1. Measure energy consumption of single JUnit tests 
+• B2. Study test generation energy consumption
+• B3. Energy proﬁling of static analysis tools
+• B4. Detailed energy proﬁling of build pipelines
+• B5. Tool supporting SusAF workshop / process
+• B6. Dataset of government-developed OS software
+• B7. Queue - but better for the student / TA society
+Quality Assurance & Testing
+Social & Individual  
+Sustainability"
+How can static code analysis in data science be used to improve the energy efficiency of data centers and contribute to sustainable software engineering?,"Static code analysis in data science can be used to estimate energy efficiency by identifying potential energy hotspots in the code. This helps in reviewing and optimizing the code to reduce energy consumption. By applying this approach, developers can contribute to the design and maintenance of more energy-efficient data centers, aligning with sustainable software engineering practices.","<1-hop>
+
+C6 - Green Shift Left
+• Estimate energy eﬃciency using static code analysis.
+• We don’t need an accurate value.
+• It is useful to know which code is more likely to 
+introduce energy hotspots and that should be 
+reviewed with more attention.
+• Can be scoped to a particular domain (react, php, data 
+science, web, etc., etc.)
+27"
+How can static code analysis in data science be used to improve the energy efficiency of data centers and contribute to sustainable software engineering?,"Static code analysis in data science can be used to estimate energy efficiency by identifying potential energy hotspots in the code. This helps in reviewing and optimizing the code to reduce energy consumption. By applying this approach, developers can contribute to the design and maintenance of more energy-efficient data centers, aligning with sustainable software engineering practices.","<2-hop>
+
+Why?
+• Throughout your career you might:
+• Design/maintain/contract data centers
+• Set up operations/devops
+• Develop AI for IoT devices
+• Be the next CEO/CTO of a software company
+• Sustainability can be your main role:
+• Green Software Developer
+• Sustainability Consultant
+• Green Advocate 
+• Founder of a Green Tech startup (B2B?)
+28"
+How shuffling reduce risk and EcoAndroid reduce size?,Shuffling reduce risk by controlling external factors like room temperature changes. EcoAndroid reduce size by using features like caching and avoiding graphics and animations.,"<1-hop>
+
+Shuffle 
+🔀
+• It is not a mystery that energy consumption depends on so many factors that 
+it is impossible to control all of them.
+• If you run 30 executions for version A and another batch for version B:
+• External conditions that change over time will have a diﬀerent bias in 
+the 2 versions (e.g., room temperature changes).
+• If you shuﬄe, you reduce this risk.
+11"
+How shuffling reduce risk and EcoAndroid reduce size?,Shuffling reduce risk by controlling external factors like room temperature changes. EcoAndroid reduce size by using features like caching and avoiding graphics and animations.,"<2-hop>
+
+EcoAndroid
+• Plugin for IntelliJ (Android Studio)
+• Dynamic Retry Delay
+• Push Over Poll
+• Reduce Size
+• Cache
+• Avoid Graphics and Animations
+20"
+What are the practical applications of neuromorphic systems that leverage biological inspiration and advanced training methods for efficient computation?,"Neuromorphic systems, inspired by the human brain, have practical applications such as event-based vision, which is detailed in the reading materials. These systems use advanced training methods like surrogate gradient learning to optimize spiking neural networks, enabling efficient computation and real-world applications.","<1-hop>
+
+Neuromorphic computing
+Neuromorphic computing is an approach to computing that is inspired by the structure and function of the human brain.
+A neuromorphic computer/chip is any device that uses physical artificial neurons to do computations.
+https://en.wikipedia.org/wiki/Neuromorphic_engineering, https://www.informationweek.com/software-services/what-you-need-to-know-about-neuromorphic-computing"
+What are the practical applications of neuromorphic systems that leverage biological inspiration and advanced training methods for efficient computation?,"Neuromorphic systems, inspired by the human brain, have practical applications such as event-based vision, which is detailed in the reading materials. These systems use advanced training methods like surrogate gradient learning to optimize spiking neural networks, enabling efficient computation and real-world applications.","<2-hop>
+
+Reading materials
+Main reading:
+- Section 1 and Section 3.1 of ""Computing with spiking neuron networks."" by Paugam-Moisy H, Bohte SM, in Handbook of natural computing (2012). 
+https://homepages.cwi.nl/~sbohte/publication/paugam_moisy_bohte_SNNChapter.pdf
+- Maass W. Networks of spiking neurons: the third generation of neural network models. Neural networks. 1997. 10(9):1659-71. https://igi-web.tugraz.at/people/maass/psfiles/85a.pdf
+- Neuromorphic computing:
+- Based on biology: Zenke F, Bohté SM, Clopath C, Comşa IM, Göltz J, Maass W, Masquelier T, Naud R, Neftci EO, Petrovici MA, Scherr F. Visualizing a joint future of 
+neuroscience and neuromorphic engineering. Neuron. 2021. 109(4):571-5. https://www.sciencedirect.com/science/article/pii/S089662732100009X
+- How to train modern spiking networks: Neftci EO, Mostafa H, Zenke F. Surrogate gradient learning in spiking neural networks: Bringing the power of gradient-based 
+optimization to spiking neural networks. IEEE Signal Processing Magazine. 2019. 36(6):51-63. https://ieeexplore.ieee.org/abstract/document/8891809
+- Rate-based SNNs: Roy K, Jaiswal A, Panda P. Towards spike-based machine intelligence with neuromorphic computing. Nature. 2019. 575(7784):607-17. 
+https://www.nature.com/articles/s41586-019-1677-2
+Extra reading:
+- Converging history of deep networks and biological systems: Sejnowski TJ. The unreasonable effectiveness of deep learning in artificial intelligence. Proceedings of the National 
+Academy of Sciences. 2020. 117(48):30033-8. https://www.pnas.org/doi/full/10.1073/pnas.1907373117
+- Also an important part of neuromorphic systems and vision → Event Cameras: Gallego G, Delbrück T, Orchard G, Bartolozzi C, Taba B, Censi A, Leutenegger S, Davison AJ, Conradt J, 
+Daniilidis K, Scaramuzza D. Event-based vision: A survey. IEEE transactions on pattern analysis and machine intelligence. 2020. 44(1):154-80. 
+https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9138762
+Basics of 'conventional' neural networks:
+- Sections 4.1 to 4.4 from the book ""Pattern Recognition"" by Theodoridis and Koutroumbas.
+- Subsection 4.1.7 from the book ""Pattern Recognition and Machine Learning"" by Bishop."
+What is the foundational concepts of spiking neural networks and how they are used in encoding strategies?,"Spiking neural networks use spikes to encode information, with foundational concepts including the work of McCulloch and Pitts on logical calculus of nervous activity, and later developments in spiking neuron models.","<1-hop>
+
+Encoding strategies
+We considered single neurons with Boolean output (‘spike’=1 or ‘no spike’=0).
+How should we encode information about 'features' in a large network with many spikes?
+https://analyticsindiamag.com/a-tutorial-on-spiking-neural-networks-for-beginners/
+Elephant?
+https://www.nationalgeographic.com/anim
+als/mammals/facts/african-elephant"
+What is the foundational concepts of spiking neural networks and how they are used in encoding strategies?,"Spiking neural networks use spikes to encode information, with foundational concepts including the work of McCulloch and Pitts on logical calculus of nervous activity, and later developments in spiking neuron models.","<2-hop>
+
+References
+1) McCulloch WS, Pitts W. A logical calculus of the ideas immanent in nervous activity. The Bulletin of Mathematical Biophysics. 1943. 5(4):115-33. 
+https://link.springer.com/content/pdf/10.1007/BF02478259.pdf
+2) Pitts W, McCulloch WS. How we know universals the perception of auditory and visual forms. The Bulletin of Mathematical Biophysics. 1947. 
+9(3):127-47. https://link.springer.com/content/pdf/10.1007/BF02478291.pdf
+3) Abraham TH. (Physio) logical circuits: The intellectual origins of the McCulloch–Pitts neural networks. Journal of the History of the Behavioral 
+Sciences. 2002. 38(1):3-25. https://onlinelibrary.wiley.com/doi/pdf/10.1002/jhbs.1094
+4) Rosenblatt F. The perceptron: a probabilistic model for information storage and organization in the brain. Psychological review. 1958. 65(6):386. 
+(not publicly available) doi:10.1037/h0042519
+5) Tappert CC. Who is the father of deep learning? International Conference on Computational Science and Computational Intelligence (CSCI) 2019. 
+https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9070967
+6) https://github.com/idsc-frazzoli/retina
+7) Maass W. Networks of spiking neurons: the third generation of neural network models. Neural networks. 1997. 10(9):1659-71. 
+https://igi-web.tugraz.at/people/maass/psfiles/85a.pdf
+8) Paugam-Moisy H, Bohte SM, ""Computing with spiking neuron networks."" in Handbook of Natural Computing (2012). 
+https://homepages.cwi.nl/~sbohte/publication/paugam_moisy_bohte_SNNChapter.pdf
+9) Kheradpisheh SR, Ganjtabesh M, Thorpe SJ, Masquelier T. STDP-based spiking deep convolutional neural networks for object recognition. 
+Neural Networks. 2018 Mar 1;99:56-67. https://www-sciencedirect-com.tudelft.idm.oclc.org/science/article/pii/S0893608017302903
+10) Gütig R, Sompolinsky H. The tempotron: a neuron that learns spike timing–based decisions. Nature neuroscience. 2006 Mar;9(3):420-8. 
+http://mcn2016public.pbworks.com/w/file/fetch/137818197/Gutig_R_The%20tempotron_Nature%20Neuroscience.pdf
+11) Neftci EO, Mostafa H, Zenke F. Surrogate gradient learning in spiking neural networks: Bringing the power of gradient-based optimization to 
+SNNs. IEEE Signal Processing Magazine. 2019. 36(6):51-63. https://ieeexplore.ieee.org/abstract/document/8891809
+12) https://www.intel.com/content/www/us/en/research/neuromorphic-computing.html
+13) https://neuronaldynamics.epfl.ch/online/Ch1.S3.html
+14) Kron G. Numerical solution of ordinary and partial differential equations by means of equivalent circuits. Journal of Applied Physics. 1945. 
+16(3):172-86. https://aip.scitation.org/doi/abs/10.1063/1.1707568"
+What is the project idea related to creating a dataset of goverment-developed OS software?,"The project idea is to create a dataset of government-developed OS software, which would help in understanding the state of such software, including whether it is buildable, has open development history, and has requirements documentation.","<1-hop>
+
+B6. Dataset of government-developed OS software
+• Governments develop & use software for supporting society 
+Open-source development & policies are on the rise
+• But studying government software is diﬃcult b/c we don’t know what is out 
+there 
+→ Lack of incentive to make popular  
+→ Language barriers
+• Create a comprehensive dataset, incl. data to understand state of software: 
+buildable?, open dev. history?, requirements documentation?
+• Could start with NL, but including your / other countries greatly appreciated!"
+What is the project idea related to creating a dataset of goverment-developed OS software?,"The project idea is to create a dataset of government-developed OS software, which would help in understanding the state of such software, including whether it is buildable, has open development history, and has requirements documentation.","<2-hop>
+
+Project ideas
+• B1. Measure energy consumption of single JUnit tests 
+• B2. Study test generation energy consumption
+• B3. Energy proﬁling of static analysis tools
+• B4. Detailed energy proﬁling of build pipelines
+• B5. Tool supporting SusAF workshop / process
+• B6. Dataset of government-developed OS software
+• B7. Queue - but better for the student / TA society
+Quality Assurance & Testing
+Social & Individual  
+Sustainability"
+How does the use of static code analysis in data science projects contribute to the design and optimization of more sustanable data centers?,"The use of static code analysis in data science projects contributes to the design and optimization of more sustainable data centers by identifying energy hotspots within the code. This process allows developers to focus on reviewing and optimizing sections of code that are more likely to introduce energy inefficiencies. By doing so, it supports the broader goal of creating more energy-efficient systems, which is crucial for the sustainable operation of data centers. This approach aligns with the growing need for green software development practices, where professionals can play roles such as green software developers or sustainability consultants, ensuring that energy efficiency is a key consideration throughout the software lifecycle.","<1-hop>
+
+C6 - Green Shift Left
+• Estimate energy eﬃciency using static code analysis.
+• We don’t need an accurate value.
+• It is useful to know which code is more likely to 
+introduce energy hotspots and that should be 
+reviewed with more attention.
+• Can be scoped to a particular domain (react, php, data 
+science, web, etc., etc.)
+27"
+How does the use of static code analysis in data science projects contribute to the design and optimization of more sustanable data centers?,"The use of static code analysis in data science projects contributes to the design and optimization of more sustainable data centers by identifying energy hotspots within the code. This process allows developers to focus on reviewing and optimizing sections of code that are more likely to introduce energy inefficiencies. By doing so, it supports the broader goal of creating more energy-efficient systems, which is crucial for the sustainable operation of data centers. This approach aligns with the growing need for green software development practices, where professionals can play roles such as green software developers or sustainability consultants, ensuring that energy efficiency is a key consideration throughout the software lifecycle.","<2-hop>
+
+Why?
+• Throughout your career you might:
+• Design/maintain/contract data centers
+• Set up operations/devops
+• Develop AI for IoT devices
+• Be the next CEO/CTO of a software company
+• Sustainability can be your main role:
+• Green Software Developer
+• Sustainability Consultant
+• Green Advocate 
+• Founder of a Green Tech startup (B2B?)
+28"
+How EcoAndroid reduce risk by reduce size?,EcoAndroid reduce risk by using Reduce Size feature which help minimize energy consumption and reduce impact of external factors like temperature changes.,"<1-hop>
+
+Shuffle 
+🔀
+• It is not a mystery that energy consumption depends on so many factors that 
+it is impossible to control all of them.
+• If you run 30 executions for version A and another batch for version B:
+• External conditions that change over time will have a diﬀerent bias in 
+the 2 versions (e.g., room temperature changes).
+• If you shuﬄe, you reduce this risk.
+11"
+How EcoAndroid reduce risk by reduce size?,EcoAndroid reduce risk by using Reduce Size feature which help minimize energy consumption and reduce impact of external factors like temperature changes.,"<2-hop>
+
+EcoAndroid
+• Plugin for IntelliJ (Android Studio)
+• Dynamic Retry Delay
+• Push Over Poll
+• Reduce Size
+• Cache
+• Avoid Graphics and Animations
+20"
+"What are the practical applications of neuromorphic computing, and how does its biological inspiration influence its implementation?","Neuromorphic computing, inspired by the human brain, offers practical applications through its ability to process information in a manner similar to biological neurons. This biological inspiration influences its implementation by enabling the development of systems that can efficiently handle tasks such as pattern recognition and adaptive learning, as detailed in resources like 'Computing with spiking neuron networks' and discussions on the convergence of deep learning with biological systems.","<1-hop>
+
+Neuromorphic computing
+Neuromorphic computing is an approach to computing that is inspired by the structure and function of the human brain.
+A neuromorphic computer/chip is any device that uses physical artificial neurons to do computations.
+https://en.wikipedia.org/wiki/Neuromorphic_engineering, https://www.informationweek.com/software-services/what-you-need-to-know-about-neuromorphic-computing"
+"What are the practical applications of neuromorphic computing, and how does its biological inspiration influence its implementation?","Neuromorphic computing, inspired by the human brain, offers practical applications through its ability to process information in a manner similar to biological neurons. This biological inspiration influences its implementation by enabling the development of systems that can efficiently handle tasks such as pattern recognition and adaptive learning, as detailed in resources like 'Computing with spiking neuron networks' and discussions on the convergence of deep learning with biological systems.","<2-hop>
+
+Reading materials
+Main reading:
+- Section 1 and Section 3.1 of ""Computing with spiking neuron networks."" by Paugam-Moisy H, Bohte SM, in Handbook of natural computing (2012). 
+https://homepages.cwi.nl/~sbohte/publication/paugam_moisy_bohte_SNNChapter.pdf
+- Maass W. Networks of spiking neurons: the third generation of neural network models. Neural networks. 1997. 10(9):1659-71. https://igi-web.tugraz.at/people/maass/psfiles/85a.pdf
+- Neuromorphic computing:
+- Based on biology: Zenke F, Bohté SM, Clopath C, Comşa IM, Göltz J, Maass W, Masquelier T, Naud R, Neftci EO, Petrovici MA, Scherr F. Visualizing a joint future of 
+neuroscience and neuromorphic engineering. Neuron. 2021. 109(4):571-5. https://www.sciencedirect.com/science/article/pii/S089662732100009X
+- How to train modern spiking networks: Neftci EO, Mostafa H, Zenke F. Surrogate gradient learning in spiking neural networks: Bringing the power of gradient-based 
+optimization to spiking neural networks. IEEE Signal Processing Magazine. 2019. 36(6):51-63. https://ieeexplore.ieee.org/abstract/document/8891809
+- Rate-based SNNs: Roy K, Jaiswal A, Panda P. Towards spike-based machine intelligence with neuromorphic computing. Nature. 2019. 575(7784):607-17. 
+https://www.nature.com/articles/s41586-019-1677-2
+Extra reading:
+- Converging history of deep networks and biological systems: Sejnowski TJ. The unreasonable effectiveness of deep learning in artificial intelligence. Proceedings of the National 
+Academy of Sciences. 2020. 117(48):30033-8. https://www.pnas.org/doi/full/10.1073/pnas.1907373117
+- Also an important part of neuromorphic systems and vision → Event Cameras: Gallego G, Delbrück T, Orchard G, Bartolozzi C, Taba B, Censi A, Leutenegger S, Davison AJ, Conradt J, 
+Daniilidis K, Scaramuzza D. Event-based vision: A survey. IEEE transactions on pattern analysis and machine intelligence. 2020. 44(1):154-80. 
+https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9138762
+Basics of 'conventional' neural networks:
+- Sections 4.1 to 4.4 from the book ""Pattern Recognition"" by Theodoridis and Koutroumbas.
+- Subsection 4.1.7 from the book ""Pattern Recognition and Machine Learning"" by Bishop."
+What is the foundational concepts of spiking neural networks and how they are used in encoding strategies?,"Spiking neural networks use spikes to encode information, with foundational concepts including the work of McCulloch and Pitts on logical calculus of nervous activity, and later developments in spiking neuron models.","<1-hop>
+
+Encoding strategies
+We considered single neurons with Boolean output (‘spike’=1 or ‘no spike’=0).
+How should we encode information about 'features' in a large network with many spikes?
+https://analyticsindiamag.com/a-tutorial-on-spiking-neural-networks-for-beginners/
+Elephant?
+https://www.nationalgeographic.com/anim
+als/mammals/facts/african-elephant"
+What is the foundational concepts of spiking neural networks and how they are used in encoding strategies?,"Spiking neural networks use spikes to encode information, with foundational concepts including the work of McCulloch and Pitts on logical calculus of nervous activity, and later developments in spiking neuron models.","<2-hop>
+
+References
+1) McCulloch WS, Pitts W. A logical calculus of the ideas immanent in nervous activity. The Bulletin of Mathematical Biophysics. 1943. 5(4):115-33. 
+https://link.springer.com/content/pdf/10.1007/BF02478259.pdf
+2) Pitts W, McCulloch WS. How we know universals the perception of auditory and visual forms. The Bulletin of Mathematical Biophysics. 1947. 
+9(3):127-47. https://link.springer.com/content/pdf/10.1007/BF02478291.pdf
+3) Abraham TH. (Physio) logical circuits: The intellectual origins of the McCulloch–Pitts neural networks. Journal of the History of the Behavioral 
+Sciences. 2002. 38(1):3-25. https://onlinelibrary.wiley.com/doi/pdf/10.1002/jhbs.1094
+4) Rosenblatt F. The perceptron: a probabilistic model for information storage and organization in the brain. Psychological review. 1958. 65(6):386. 
+(not publicly available) doi:10.1037/h0042519
+5) Tappert CC. Who is the father of deep learning? International Conference on Computational Science and Computational Intelligence (CSCI) 2019. 
+https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9070967
+6) https://github.com/idsc-frazzoli/retina
+7) Maass W. Networks of spiking neurons: the third generation of neural network models. Neural networks. 1997. 10(9):1659-71. 
+https://igi-web.tugraz.at/people/maass/psfiles/85a.pdf
+8) Paugam-Moisy H, Bohte SM, ""Computing with spiking neuron networks."" in Handbook of Natural Computing (2012). 
+https://homepages.cwi.nl/~sbohte/publication/paugam_moisy_bohte_SNNChapter.pdf
+9) Kheradpisheh SR, Ganjtabesh M, Thorpe SJ, Masquelier T. STDP-based spiking deep convolutional neural networks for object recognition. 
+Neural Networks. 2018 Mar 1;99:56-67. https://www-sciencedirect-com.tudelft.idm.oclc.org/science/article/pii/S0893608017302903
+10) Gütig R, Sompolinsky H. The tempotron: a neuron that learns spike timing–based decisions. Nature neuroscience. 2006 Mar;9(3):420-8. 
+http://mcn2016public.pbworks.com/w/file/fetch/137818197/Gutig_R_The%20tempotron_Nature%20Neuroscience.pdf
+11) Neftci EO, Mostafa H, Zenke F. Surrogate gradient learning in spiking neural networks: Bringing the power of gradient-based optimization to 
+SNNs. IEEE Signal Processing Magazine. 2019. 36(6):51-63. https://ieeexplore.ieee.org/abstract/document/8891809
+12) https://www.intel.com/content/www/us/en/research/neuromorphic-computing.html
+13) https://neuronaldynamics.epfl.ch/online/Ch1.S3.html
+14) Kron G. Numerical solution of ordinary and partial differential equations by means of equivalent circuits. Journal of Applied Physics. 1945. 
+16(3):172-86. https://aip.scitation.org/doi/abs/10.1063/1.1707568"
+What is the project idea about government-developed OS software?,"The project idea involves creating a comprehensive dataset of government-developed OS software to understand its state, including buildability, open development history, and requirements documentation. This addresses challenges like lack of incentives and language barriers.","<1-hop>
+
+B6. Dataset of government-developed OS software
+• Governments develop & use software for supporting society 
+Open-source development & policies are on the rise
+• But studying government software is diﬃcult b/c we don’t know what is out 
+there 
+→ Lack of incentive to make popular  
+→ Language barriers
+• Create a comprehensive dataset, incl. data to understand state of software: 
+buildable?, open dev. history?, requirements documentation?
+• Could start with NL, but including your / other countries greatly appreciated!"
+What is the project idea about government-developed OS software?,"The project idea involves creating a comprehensive dataset of government-developed OS software to understand its state, including buildability, open development history, and requirements documentation. This addresses challenges like lack of incentives and language barriers.","<2-hop>
+
+Project ideas
+• B1. Measure energy consumption of single JUnit tests 
+• B2. Study test generation energy consumption
+• B3. Energy proﬁling of static analysis tools
+• B4. Detailed energy proﬁling of build pipelines
+• B5. Tool supporting SusAF workshop / process
+• B6. Dataset of government-developed OS software
+• B7. Queue - but better for the student / TA society
+Quality Assurance & Testing
+Social & Individual  
+Sustainability"
+How can static code analysis in data science projects help in designing more sustainablility-focused data centers?,"Static code analysis in data science projects can help in designing more sustainablility-focused data centers by identifying energy hotspots in the code. This allows developers to review and optimize code that may contribute to higher energy consumption, thereby supporting the development of more efficient and sustainable data centers.","<1-hop>
+
+C6 - Green Shift Left
+• Estimate energy eﬃciency using static code analysis.
+• We don’t need an accurate value.
+• It is useful to know which code is more likely to 
+introduce energy hotspots and that should be 
+reviewed with more attention.
+• Can be scoped to a particular domain (react, php, data 
+science, web, etc., etc.)
+27"
+How can static code analysis in data science projects help in designing more sustainablility-focused data centers?,"Static code analysis in data science projects can help in designing more sustainablility-focused data centers by identifying energy hotspots in the code. This allows developers to review and optimize code that may contribute to higher energy consumption, thereby supporting the development of more efficient and sustainable data centers.","<2-hop>
+
+Why?
+• Throughout your career you might:
+• Design/maintain/contract data centers
+• Set up operations/devops
+• Develop AI for IoT devices
+• Be the next CEO/CTO of a software company
+• Sustainability can be your main role:
+• Green Software Developer
+• Sustainability Consultant
+• Green Advocate 
+• Founder of a Green Tech startup (B2B?)
+28"
+How shuffling reduce risk when compare to EcoAndroid reduce size?,Shuffling reduce risk by balance external factor like room temperature change while EcoAndroid reduce size by optimize resource use.,"<1-hop>
+
+Shuffle 
+🔀
+• It is not a mystery that energy consumption depends on so many factors that 
+it is impossible to control all of them.
+• If you run 30 executions for version A and another batch for version B:
+• External conditions that change over time will have a diﬀerent bias in 
+the 2 versions (e.g., room temperature changes).
+• If you shuﬄe, you reduce this risk.
+11"
+How shuffling reduce risk when compare to EcoAndroid reduce size?,Shuffling reduce risk by balance external factor like room temperature change while EcoAndroid reduce size by optimize resource use.,"<2-hop>
+
+EcoAndroid
+• Plugin for IntelliJ (Android Studio)
+• Dynamic Retry Delay
+• Push Over Poll
+• Reduce Size
+• Cache
+• Avoid Graphics and Animations
+20"
+What are the benefits of neuromorphic computing in the context of green software practices?,"Neuromorphic computing offers several benefits in the context of green software practices. It is inspired by the structure and function of the human brain, making it highly energy-efficient compared to traditional computing methods. This efficiency is particularly relevant for sustainable software development, as it reduces the environmental impact of computing systems. Additionally, neuromorphic systems can process information in a way that mimics biological neural networks, which can lead to more efficient and sustainable computing solutions. These aspects make neuromorphic computing a promising approach for developers looking to implement green software practices.","<1-hop>
+
+Neuromorphic computing
+Neuromorphic computing is an approach to computing that is inspired by the structure and function of the human brain.
+A neuromorphic computer/chip is any device that uses physical artificial neurons to do computations.
+https://en.wikipedia.org/wiki/Neuromorphic_engineering, https://www.informationweek.com/software-services/what-you-need-to-know-about-neuromorphic-computing"
+What are the benefits of neuromorphic computing in the context of green software practices?,"Neuromorphic computing offers several benefits in the context of green software practices. It is inspired by the structure and function of the human brain, making it highly energy-efficient compared to traditional computing methods. This efficiency is particularly relevant for sustainable software development, as it reduces the environmental impact of computing systems. Additionally, neuromorphic systems can process information in a way that mimics biological neural networks, which can lead to more efficient and sustainable computing solutions. These aspects make neuromorphic computing a promising approach for developers looking to implement green software practices.","<2-hop>
+
+Reading materials
+Main reading:
+- Section 1 and Section 3.1 of ""Computing with spiking neuron networks."" by Paugam-Moisy H, Bohte SM, in Handbook of natural computing (2012). 
+https://homepages.cwi.nl/~sbohte/publication/paugam_moisy_bohte_SNNChapter.pdf
+- Maass W. Networks of spiking neurons: the third generation of neural network models. Neural networks. 1997. 10(9):1659-71. https://igi-web.tugraz.at/people/maass/psfiles/85a.pdf
+- Neuromorphic computing:
+- Based on biology: Zenke F, Bohté SM, Clopath C, Comşa IM, Göltz J, Maass W, Masquelier T, Naud R, Neftci EO, Petrovici MA, Scherr F. Visualizing a joint future of 
+neuroscience and neuromorphic engineering. Neuron. 2021. 109(4):571-5. https://www.sciencedirect.com/science/article/pii/S089662732100009X
+- How to train modern spiking networks: Neftci EO, Mostafa H, Zenke F. Surrogate gradient learning in spiking neural networks: Bringing the power of gradient-based 
+optimization to spiking neural networks. IEEE Signal Processing Magazine. 2019. 36(6):51-63. https://ieeexplore.ieee.org/abstract/document/8891809
+- Rate-based SNNs: Roy K, Jaiswal A, Panda P. Towards spike-based machine intelligence with neuromorphic computing. Nature. 2019. 575(7784):607-17. 
+https://www.nature.com/articles/s41586-019-1677-2
+Extra reading:
+- Converging history of deep networks and biological systems: Sejnowski TJ. The unreasonable effectiveness of deep learning in artificial intelligence. Proceedings of the National 
+Academy of Sciences. 2020. 117(48):30033-8. https://www.pnas.org/doi/full/10.1073/pnas.1907373117
+- Also an important part of neuromorphic systems and vision → Event Cameras: Gallego G, Delbrück T, Orchard G, Bartolozzi C, Taba B, Censi A, Leutenegger S, Davison AJ, Conradt J, 
+Daniilidis K, Scaramuzza D. Event-based vision: A survey. IEEE transactions on pattern analysis and machine intelligence. 2020. 44(1):154-80. 
+https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9138762
+Basics of 'conventional' neural networks:
+- Sections 4.1 to 4.4 from the book ""Pattern Recognition"" by Theodoridis and Koutroumbas.
+- Subsection 4.1.7 from the book ""Pattern Recognition and Machine Learning"" by Bishop."
+What is the difference between spiking neural networks and spiking neuron networks?,"Spiking neural networks (SNNs) are a type of neural network model that processes information using spikes, similar to biological neurons. Spiking neuron networks refer to the individual components within these networks, focusing on how each neuron processes and communicates information through spikes.","<1-hop>
+
+Encoding strategies
+We considered single neurons with Boolean output (‘spike’=1 or ‘no spike’=0).
+How should we encode information about 'features' in a large network with many spikes?
+https://analyticsindiamag.com/a-tutorial-on-spiking-neural-networks-for-beginners/
+Elephant?
+https://www.nationalgeographic.com/anim
+als/mammals/facts/african-elephant"
+What is the difference between spiking neural networks and spiking neuron networks?,"Spiking neural networks (SNNs) are a type of neural network model that processes information using spikes, similar to biological neurons. Spiking neuron networks refer to the individual components within these networks, focusing on how each neuron processes and communicates information through spikes.","<2-hop>
+
+References
+1) McCulloch WS, Pitts W. A logical calculus of the ideas immanent in nervous activity. The Bulletin of Mathematical Biophysics. 1943. 5(4):115-33. 
+https://link.springer.com/content/pdf/10.1007/BF02478259.pdf
+2) Pitts W, McCulloch WS. How we know universals the perception of auditory and visual forms. The Bulletin of Mathematical Biophysics. 1947. 
+9(3):127-47. https://link.springer.com/content/pdf/10.1007/BF02478291.pdf
+3) Abraham TH. (Physio) logical circuits: The intellectual origins of the McCulloch–Pitts neural networks. Journal of the History of the Behavioral 
+Sciences. 2002. 38(1):3-25. https://onlinelibrary.wiley.com/doi/pdf/10.1002/jhbs.1094
+4) Rosenblatt F. The perceptron: a probabilistic model for information storage and organization in the brain. Psychological review. 1958. 65(6):386. 
+(not publicly available) doi:10.1037/h0042519
+5) Tappert CC. Who is the father of deep learning? International Conference on Computational Science and Computational Intelligence (CSCI) 2019. 
+https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9070967
+6) https://github.com/idsc-frazzoli/retina
+7) Maass W. Networks of spiking neurons: the third generation of neural network models. Neural networks. 1997. 10(9):1659-71. 
+https://igi-web.tugraz.at/people/maass/psfiles/85a.pdf
+8) Paugam-Moisy H, Bohte SM, ""Computing with spiking neuron networks."" in Handbook of Natural Computing (2012). 
+https://homepages.cwi.nl/~sbohte/publication/paugam_moisy_bohte_SNNChapter.pdf
+9) Kheradpisheh SR, Ganjtabesh M, Thorpe SJ, Masquelier T. STDP-based spiking deep convolutional neural networks for object recognition. 
+Neural Networks. 2018 Mar 1;99:56-67. https://www-sciencedirect-com.tudelft.idm.oclc.org/science/article/pii/S0893608017302903
+10) Gütig R, Sompolinsky H. The tempotron: a neuron that learns spike timing–based decisions. Nature neuroscience. 2006 Mar;9(3):420-8. 
+http://mcn2016public.pbworks.com/w/file/fetch/137818197/Gutig_R_The%20tempotron_Nature%20Neuroscience.pdf
+11) Neftci EO, Mostafa H, Zenke F. Surrogate gradient learning in spiking neural networks: Bringing the power of gradient-based optimization to 
+SNNs. IEEE Signal Processing Magazine. 2019. 36(6):51-63. https://ieeexplore.ieee.org/abstract/document/8891809
+12) https://www.intel.com/content/www/us/en/research/neuromorphic-computing.html
+13) https://neuronaldynamics.epfl.ch/online/Ch1.S3.html
+14) Kron G. Numerical solution of ordinary and partial differential equations by means of equivalent circuits. Journal of Applied Physics. 1945. 
+16(3):172-86. https://aip.scitation.org/doi/abs/10.1063/1.1707568"
+What is the project idea related to creating a dataset of government-developed OS software?,"The project idea is to create a comprehensive dataset of government-developed OS software to understand the state of such software, including its buildability, open development history, and requirements documentation. This addresses challenges like the lack of incentive to make software popular and language barriers.","<1-hop>
+
+B6. Dataset of government-developed OS software
+• Governments develop & use software for supporting society 
+Open-source development & policies are on the rise
+• But studying government software is diﬃcult b/c we don’t know what is out 
+there 
+→ Lack of incentive to make popular  
+→ Language barriers
+• Create a comprehensive dataset, incl. data to understand state of software: 
+buildable?, open dev. history?, requirements documentation?
+• Could start with NL, but including your / other countries greatly appreciated!"
+What is the project idea related to creating a dataset of government-developed OS software?,"The project idea is to create a comprehensive dataset of government-developed OS software to understand the state of such software, including its buildability, open development history, and requirements documentation. This addresses challenges like the lack of incentive to make software popular and language barriers.","<2-hop>
+
+Project ideas
+• B1. Measure energy consumption of single JUnit tests 
+• B2. Study test generation energy consumption
+• B3. Energy proﬁling of static analysis tools
+• B4. Detailed energy proﬁling of build pipelines
+• B5. Tool supporting SusAF workshop / process
+• B6. Dataset of government-developed OS software
+• B7. Queue - but better for the student / TA society
+Quality Assurance & Testing
+Social & Individual  
+Sustainability"
+How can static code analysis in data science be used to improve the energy efficiency of data centers and contribute to sustainable software engineering?,"Static code analysis in data science can be used to estimate energy efficiency by identifying potential energy hotspots in the code. This helps in reviewing and optimizing the code to reduce energy consumption. By applying this approach, developers can contribute to the design and maintenance of more energy-efficient data centers, aligning with sustainable software engineering practices.","<1-hop>
+
+C6 - Green Shift Left
+• Estimate energy eﬃciency using static code analysis.
+• We don’t need an accurate value.
+• It is useful to know which code is more likely to 
+introduce energy hotspots and that should be 
+reviewed with more attention.
+• Can be scoped to a particular domain (react, php, data 
+science, web, etc., etc.)
+27"
+How can static code analysis in data science be used to improve the energy efficiency of data centers and contribute to sustainable software engineering?,"Static code analysis in data science can be used to estimate energy efficiency by identifying potential energy hotspots in the code. This helps in reviewing and optimizing the code to reduce energy consumption. By applying this approach, developers can contribute to the design and maintenance of more energy-efficient data centers, aligning with sustainable software engineering practices.","<2-hop>
+
+Why?
+• Throughout your career you might:
+• Design/maintain/contract data centers
+• Set up operations/devops
+• Develop AI for IoT devices
+• Be the next CEO/CTO of a software company
+• Sustainability can be your main role:
+• Green Software Developer
+• Sustainability Consultant
+• Green Advocate 
+• Founder of a Green Tech startup (B2B?)
+28"
+How reduce risk and reduce size in software engineering?,"To reduce risk, shuffling executions helps control external factors like temperature changes. To reduce size, EcoAndroid uses features like dynamic retry delay and push over poll.","<1-hop>
+
+Shuffle 
+🔀
+• It is not a mystery that energy consumption depends on so many factors that 
+it is impossible to control all of them.
+• If you run 30 executions for version A and another batch for version B:
+• External conditions that change over time will have a diﬀerent bias in 
+the 2 versions (e.g., room temperature changes).
+• If you shuﬄe, you reduce this risk.
+11"
+How reduce risk and reduce size in software engineering?,"To reduce risk, shuffling executions helps control external factors like temperature changes. To reduce size, EcoAndroid uses features like dynamic retry delay and push over poll.","<2-hop>
+
+EcoAndroid
+• Plugin for IntelliJ (Android Studio)
+• Dynamic Retry Delay
+• Push Over Poll
+• Reduce Size
+• Cache
+• Avoid Graphics and Animations
+20"
+"What are the practical applications of neuromorphic computing, and how does its biological inspiration influence its implementation in modern computing systems?","Neuromorphic computing, inspired by the human brain, offers practical applications such as event-based vision systems and efficient processing of sensory data. Its biological inspiration influences its implementation through the use of spiking neural networks and physical artificial neurons, enabling more energy-efficient and brain-like computation methods.","<1-hop>
+
+Neuromorphic computing
+Neuromorphic computing is an approach to computing that is inspired by the structure and function of the human brain.
+A neuromorphic computer/chip is any device that uses physical artificial neurons to do computations.
+https://en.wikipedia.org/wiki/Neuromorphic_engineering, https://www.informationweek.com/software-services/what-you-need-to-know-about-neuromorphic-computing"
+"What are the practical applications of neuromorphic computing, and how does its biological inspiration influence its implementation in modern computing systems?","Neuromorphic computing, inspired by the human brain, offers practical applications such as event-based vision systems and efficient processing of sensory data. Its biological inspiration influences its implementation through the use of spiking neural networks and physical artificial neurons, enabling more energy-efficient and brain-like computation methods.","<2-hop>
+
+Reading materials
+Main reading:
+- Section 1 and Section 3.1 of ""Computing with spiking neuron networks."" by Paugam-Moisy H, Bohte SM, in Handbook of natural computing (2012). 
+https://homepages.cwi.nl/~sbohte/publication/paugam_moisy_bohte_SNNChapter.pdf
+- Maass W. Networks of spiking neurons: the third generation of neural network models. Neural networks. 1997. 10(9):1659-71. https://igi-web.tugraz.at/people/maass/psfiles/85a.pdf
+- Neuromorphic computing:
+- Based on biology: Zenke F, Bohté SM, Clopath C, Comşa IM, Göltz J, Maass W, Masquelier T, Naud R, Neftci EO, Petrovici MA, Scherr F. Visualizing a joint future of 
+neuroscience and neuromorphic engineering. Neuron. 2021. 109(4):571-5. https://www.sciencedirect.com/science/article/pii/S089662732100009X
+- How to train modern spiking networks: Neftci EO, Mostafa H, Zenke F. Surrogate gradient learning in spiking neural networks: Bringing the power of gradient-based 
+optimization to spiking neural networks. IEEE Signal Processing Magazine. 2019. 36(6):51-63. https://ieeexplore.ieee.org/abstract/document/8891809
+- Rate-based SNNs: Roy K, Jaiswal A, Panda P. Towards spike-based machine intelligence with neuromorphic computing. Nature. 2019. 575(7784):607-17. 
+https://www.nature.com/articles/s41586-019-1677-2
+Extra reading:
+- Converging history of deep networks and biological systems: Sejnowski TJ. The unreasonable effectiveness of deep learning in artificial intelligence. Proceedings of the National 
+Academy of Sciences. 2020. 117(48):30033-8. https://www.pnas.org/doi/full/10.1073/pnas.1907373117
+- Also an important part of neuromorphic systems and vision → Event Cameras: Gallego G, Delbrück T, Orchard G, Bartolozzi C, Taba B, Censi A, Leutenegger S, Davison AJ, Conradt J, 
+Daniilidis K, Scaramuzza D. Event-based vision: A survey. IEEE transactions on pattern analysis and machine intelligence. 2020. 44(1):154-80. 
+https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9138762
+Basics of 'conventional' neural networks:
+- Sections 4.1 to 4.4 from the book ""Pattern Recognition"" by Theodoridis and Koutroumbas.
+- Subsection 4.1.7 from the book ""Pattern Recognition and Machine Learning"" by Bishop."
+How spiking neural networks relate to McCulloch-Pitts model?,"Spiking neural networks relate to the McCulloch-Pitts model by building upon the foundational concepts of neural computation, where the McCulloch-Pitts model introduced the idea of binary neuron states, which is extended in spiking networks to model more complex information processing through spike timing and patterns.","<1-hop>
+
+Encoding strategies
+We considered single neurons with Boolean output (‘spike’=1 or ‘no spike’=0).
+How should we encode information about 'features' in a large network with many spikes?
+https://analyticsindiamag.com/a-tutorial-on-spiking-neural-networks-for-beginners/
+Elephant?
+https://www.nationalgeographic.com/anim
+als/mammals/facts/african-elephant"
+How spiking neural networks relate to McCulloch-Pitts model?,"Spiking neural networks relate to the McCulloch-Pitts model by building upon the foundational concepts of neural computation, where the McCulloch-Pitts model introduced the idea of binary neuron states, which is extended in spiking networks to model more complex information processing through spike timing and patterns.","<2-hop>
+
+References
+1) McCulloch WS, Pitts W. A logical calculus of the ideas immanent in nervous activity. The Bulletin of Mathematical Biophysics. 1943. 5(4):115-33. 
+https://link.springer.com/content/pdf/10.1007/BF02478259.pdf
+2) Pitts W, McCulloch WS. How we know universals the perception of auditory and visual forms. The Bulletin of Mathematical Biophysics. 1947. 
+9(3):127-47. https://link.springer.com/content/pdf/10.1007/BF02478291.pdf
+3) Abraham TH. (Physio) logical circuits: The intellectual origins of the McCulloch–Pitts neural networks. Journal of the History of the Behavioral 
+Sciences. 2002. 38(1):3-25. https://onlinelibrary.wiley.com/doi/pdf/10.1002/jhbs.1094
+4) Rosenblatt F. The perceptron: a probabilistic model for information storage and organization in the brain. Psychological review. 1958. 65(6):386. 
+(not publicly available) doi:10.1037/h0042519
+5) Tappert CC. Who is the father of deep learning? International Conference on Computational Science and Computational Intelligence (CSCI) 2019. 
+https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9070967
+6) https://github.com/idsc-frazzoli/retina
+7) Maass W. Networks of spiking neurons: the third generation of neural network models. Neural networks. 1997. 10(9):1659-71. 
+https://igi-web.tugraz.at/people/maass/psfiles/85a.pdf
+8) Paugam-Moisy H, Bohte SM, ""Computing with spiking neuron networks."" in Handbook of Natural Computing (2012). 
+https://homepages.cwi.nl/~sbohte/publication/paugam_moisy_bohte_SNNChapter.pdf
+9) Kheradpisheh SR, Ganjtabesh M, Thorpe SJ, Masquelier T. STDP-based spiking deep convolutional neural networks for object recognition. 
+Neural Networks. 2018 Mar 1;99:56-67. https://www-sciencedirect-com.tudelft.idm.oclc.org/science/article/pii/S0893608017302903
+10) Gütig R, Sompolinsky H. The tempotron: a neuron that learns spike timing–based decisions. Nature neuroscience. 2006 Mar;9(3):420-8. 
+http://mcn2016public.pbworks.com/w/file/fetch/137818197/Gutig_R_The%20tempotron_Nature%20Neuroscience.pdf
+11) Neftci EO, Mostafa H, Zenke F. Surrogate gradient learning in spiking neural networks: Bringing the power of gradient-based optimization to 
+SNNs. IEEE Signal Processing Magazine. 2019. 36(6):51-63. https://ieeexplore.ieee.org/abstract/document/8891809
+12) https://www.intel.com/content/www/us/en/research/neuromorphic-computing.html
+13) https://neuronaldynamics.epfl.ch/online/Ch1.S3.html
+14) Kron G. Numerical solution of ordinary and partial differential equations by means of equivalent circuits. Journal of Applied Physics. 1945. 
+16(3):172-86. https://aip.scitation.org/doi/abs/10.1063/1.1707568"
+What is the project idea related to creating a dataset of goverment-developed OS software?,"The project idea is to create a dataset of government-developed OS software, which would help in understanding the state of such software, including whether it is buildable, has open development history, and has requirements documentation.","<1-hop>
+
+B6. Dataset of government-developed OS software
+• Governments develop & use software for supporting society 
+Open-source development & policies are on the rise
+• But studying government software is diﬃcult b/c we don’t know what is out 
+there 
+→ Lack of incentive to make popular  
+→ Language barriers
+• Create a comprehensive dataset, incl. data to understand state of software: 
+buildable?, open dev. history?, requirements documentation?
+• Could start with NL, but including your / other countries greatly appreciated!"
+What is the project idea related to creating a dataset of goverment-developed OS software?,"The project idea is to create a dataset of government-developed OS software, which would help in understanding the state of such software, including whether it is buildable, has open development history, and has requirements documentation.","<2-hop>
+
+Project ideas
+• B1. Measure energy consumption of single JUnit tests 
+• B2. Study test generation energy consumption
+• B3. Energy proﬁling of static analysis tools
+• B4. Detailed energy proﬁling of build pipelines
+• B5. Tool supporting SusAF workshop / process
+• B6. Dataset of government-developed OS software
+• B7. Queue - but better for the student / TA society
+Quality Assurance & Testing
+Social & Individual  
+Sustainability"
+How does the use of static code analysis in data science projects contribute to the design and optimization of more sustanable data centers?,"The use of static code analysis in data science projects contributes to the design and optimization of more sustainable data centers by identifying energy hotspots within the code. This process allows developers to focus on reviewing and optimizing sections of code that are more likely to introduce energy inefficiencies. By doing so, it supports the broader goal of creating more energy-efficient systems, which is crucial for the sustainable operation of data centers. This approach aligns with the growing need for green software development practices, where professionals can play roles such as green software developers or sustainability consultants, ensuring that energy efficiency is a key consideration throughout the software lifecycle.","<1-hop>
+
+C6 - Green Shift Left
+• Estimate energy eﬃciency using static code analysis.
+• We don’t need an accurate value.
+• It is useful to know which code is more likely to 
+introduce energy hotspots and that should be 
+reviewed with more attention.
+• Can be scoped to a particular domain (react, php, data 
+science, web, etc., etc.)
+27"
+How does the use of static code analysis in data science projects contribute to the design and optimization of more sustanable data centers?,"The use of static code analysis in data science projects contributes to the design and optimization of more sustainable data centers by identifying energy hotspots within the code. This process allows developers to focus on reviewing and optimizing sections of code that are more likely to introduce energy inefficiencies. By doing so, it supports the broader goal of creating more energy-efficient systems, which is crucial for the sustainable operation of data centers. This approach aligns with the growing need for green software development practices, where professionals can play roles such as green software developers or sustainability consultants, ensuring that energy efficiency is a key consideration throughout the software lifecycle.","<2-hop>
+
+Why?
+• Throughout your career you might:
+• Design/maintain/contract data centers
+• Set up operations/devops
+• Develop AI for IoT devices
+• Be the next CEO/CTO of a software company
+• Sustainability can be your main role:
+• Green Software Developer
+• Sustainability Consultant
+• Green Advocate 
+• Founder of a Green Tech startup (B2B?)
+28"
+How shuffling reduce risk and EcoAndroid reduce size?,Shuffling reduce risk by controlling external factors like room temperature changes. EcoAndroid reduce size by using features like caching and avoiding graphics and animations.,"<1-hop>
+
+Shuffle 
+🔀
+• It is not a mystery that energy consumption depends on so many factors that 
+it is impossible to control all of them.
+• If you run 30 executions for version A and another batch for version B:
+• External conditions that change over time will have a diﬀerent bias in 
+the 2 versions (e.g., room temperature changes).
+• If you shuﬄe, you reduce this risk.
+11"
+How shuffling reduce risk and EcoAndroid reduce size?,Shuffling reduce risk by controlling external factors like room temperature changes. EcoAndroid reduce size by using features like caching and avoiding graphics and animations.,"<2-hop>
+
+EcoAndroid
+• Plugin for IntelliJ (Android Studio)
+• Dynamic Retry Delay
+• Push Over Poll
+• Reduce Size
+• Cache
+• Avoid Graphics and Animations
+20"
+What are the benefits of neuromorphic computing in the context of green software practices?,"Neuromorphic computing offers several benefits in the context of green software practices. It is inspired by the structure and function of the human brain, making it highly energy-efficient compared to traditional computing methods. This efficiency is particularly relevant for sustainable software development, as it reduces the environmental impact of computing systems. Additionally, neuromorphic systems can process information in a way that mimics biological neural networks, which can lead to more efficient and sustainable computing solutions. These aspects make neuromorphic computing a promising approach for developers looking to implement green software practices.","<1-hop>
+
+Neuromorphic computing
+Neuromorphic computing is an approach to computing that is inspired by the structure and function of the human brain.
+A neuromorphic computer/chip is any device that uses physical artificial neurons to do computations.
+https://en.wikipedia.org/wiki/Neuromorphic_engineering, https://www.informationweek.com/software-services/what-you-need-to-know-about-neuromorphic-computing"
+What are the benefits of neuromorphic computing in the context of green software practices?,"Neuromorphic computing offers several benefits in the context of green software practices. It is inspired by the structure and function of the human brain, making it highly energy-efficient compared to traditional computing methods. This efficiency is particularly relevant for sustainable software development, as it reduces the environmental impact of computing systems. Additionally, neuromorphic systems can process information in a way that mimics biological neural networks, which can lead to more efficient and sustainable computing solutions. These aspects make neuromorphic computing a promising approach for developers looking to implement green software practices.","<2-hop>
+
+Reading materials
+Main reading:
+- Section 1 and Section 3.1 of ""Computing with spiking neuron networks."" by Paugam-Moisy H, Bohte SM, in Handbook of natural computing (2012). 
+https://homepages.cwi.nl/~sbohte/publication/paugam_moisy_bohte_SNNChapter.pdf
+- Maass W. Networks of spiking neurons: the third generation of neural network models. Neural networks. 1997. 10(9):1659-71. https://igi-web.tugraz.at/people/maass/psfiles/85a.pdf
+- Neuromorphic computing:
+- Based on biology: Zenke F, Bohté SM, Clopath C, Comşa IM, Göltz J, Maass W, Masquelier T, Naud R, Neftci EO, Petrovici MA, Scherr F. Visualizing a joint future of 
+neuroscience and neuromorphic engineering. Neuron. 2021. 109(4):571-5. https://www.sciencedirect.com/science/article/pii/S089662732100009X
+- How to train modern spiking networks: Neftci EO, Mostafa H, Zenke F. Surrogate gradient learning in spiking neural networks: Bringing the power of gradient-based 
+optimization to spiking neural networks. IEEE Signal Processing Magazine. 2019. 36(6):51-63. https://ieeexplore.ieee.org/abstract/document/8891809
+- Rate-based SNNs: Roy K, Jaiswal A, Panda P. Towards spike-based machine intelligence with neuromorphic computing. Nature. 2019. 575(7784):607-17. 
+https://www.nature.com/articles/s41586-019-1677-2
+Extra reading:
+- Converging history of deep networks and biological systems: Sejnowski TJ. The unreasonable effectiveness of deep learning in artificial intelligence. Proceedings of the National 
+Academy of Sciences. 2020. 117(48):30033-8. https://www.pnas.org/doi/full/10.1073/pnas.1907373117
+- Also an important part of neuromorphic systems and vision → Event Cameras: Gallego G, Delbrück T, Orchard G, Bartolozzi C, Taba B, Censi A, Leutenegger S, Davison AJ, Conradt J, 
+Daniilidis K, Scaramuzza D. Event-based vision: A survey. IEEE transactions on pattern analysis and machine intelligence. 2020. 44(1):154-80. 
+https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9138762
+Basics of 'conventional' neural networks:
+- Sections 4.1 to 4.4 from the book ""Pattern Recognition"" by Theodoridis and Koutroumbas.
+- Subsection 4.1.7 from the book ""Pattern Recognition and Machine Learning"" by Bishop."
+What is the foundational concepts of spiking neural networks and how they are used in encoding strategies?,"Spiking neural networks use spikes to encode information, with foundational concepts including the work of McCulloch and Pitts on logical calculus of nervous activity, and later developments in spiking neuron models.","<1-hop>
+
+Encoding strategies
+We considered single neurons with Boolean output (‘spike’=1 or ‘no spike’=0).
+How should we encode information about 'features' in a large network with many spikes?
+https://analyticsindiamag.com/a-tutorial-on-spiking-neural-networks-for-beginners/
+Elephant?
+https://www.nationalgeographic.com/anim
+als/mammals/facts/african-elephant"
+What is the foundational concepts of spiking neural networks and how they are used in encoding strategies?,"Spiking neural networks use spikes to encode information, with foundational concepts including the work of McCulloch and Pitts on logical calculus of nervous activity, and later developments in spiking neuron models.","<2-hop>
+
+References
+1) McCulloch WS, Pitts W. A logical calculus of the ideas immanent in nervous activity. The Bulletin of Mathematical Biophysics. 1943. 5(4):115-33. 
+https://link.springer.com/content/pdf/10.1007/BF02478259.pdf
+2) Pitts W, McCulloch WS. How we know universals the perception of auditory and visual forms. The Bulletin of Mathematical Biophysics. 1947. 
+9(3):127-47. https://link.springer.com/content/pdf/10.1007/BF02478291.pdf
+3) Abraham TH. (Physio) logical circuits: The intellectual origins of the McCulloch–Pitts neural networks. Journal of the History of the Behavioral 
+Sciences. 2002. 38(1):3-25. https://onlinelibrary.wiley.com/doi/pdf/10.1002/jhbs.1094
+4) Rosenblatt F. The perceptron: a probabilistic model for information storage and organization in the brain. Psychological review. 1958. 65(6):386. 
+(not publicly available) doi:10.1037/h0042519
+5) Tappert CC. Who is the father of deep learning? International Conference on Computational Science and Computational Intelligence (CSCI) 2019. 
+https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9070967
+6) https://github.com/idsc-frazzoli/retina
+7) Maass W. Networks of spiking neurons: the third generation of neural network models. Neural networks. 1997. 10(9):1659-71. 
+https://igi-web.tugraz.at/people/maass/psfiles/85a.pdf
+8) Paugam-Moisy H, Bohte SM, ""Computing with spiking neuron networks."" in Handbook of Natural Computing (2012). 
+https://homepages.cwi.nl/~sbohte/publication/paugam_moisy_bohte_SNNChapter.pdf
+9) Kheradpisheh SR, Ganjtabesh M, Thorpe SJ, Masquelier T. STDP-based spiking deep convolutional neural networks for object recognition. 
+Neural Networks. 2018 Mar 1;99:56-67. https://www-sciencedirect-com.tudelft.idm.oclc.org/science/article/pii/S0893608017302903
+10) Gütig R, Sompolinsky H. The tempotron: a neuron that learns spike timing–based decisions. Nature neuroscience. 2006 Mar;9(3):420-8. 
+http://mcn2016public.pbworks.com/w/file/fetch/137818197/Gutig_R_The%20tempotron_Nature%20Neuroscience.pdf
+11) Neftci EO, Mostafa H, Zenke F. Surrogate gradient learning in spiking neural networks: Bringing the power of gradient-based optimization to 
+SNNs. IEEE Signal Processing Magazine. 2019. 36(6):51-63. https://ieeexplore.ieee.org/abstract/document/8891809
+12) https://www.intel.com/content/www/us/en/research/neuromorphic-computing.html
+13) https://neuronaldynamics.epfl.ch/online/Ch1.S3.html
+14) Kron G. Numerical solution of ordinary and partial differential equations by means of equivalent circuits. Journal of Applied Physics. 1945. 
+16(3):172-86. https://aip.scitation.org/doi/abs/10.1063/1.1707568"
+What is the project idea related to creating a dataset of goverment-developed OS software?,"The project idea is to create a dataset of government-developed OS software, which would help in understanding the state of such software, including whether it is buildable, has open development history, and has requirements documentation.","<1-hop>
+
+B6. Dataset of government-developed OS software
+• Governments develop & use software for supporting society 
+Open-source development & policies are on the rise
+• But studying government software is diﬃcult b/c we don’t know what is out 
+there 
+→ Lack of incentive to make popular  
+→ Language barriers
+• Create a comprehensive dataset, incl. data to understand state of software: 
+buildable?, open dev. history?, requirements documentation?
+• Could start with NL, but including your / other countries greatly appreciated!"
+What is the project idea related to creating a dataset of goverment-developed OS software?,"The project idea is to create a dataset of government-developed OS software, which would help in understanding the state of such software, including whether it is buildable, has open development history, and has requirements documentation.","<2-hop>
+
+Project ideas
+• B1. Measure energy consumption of single JUnit tests 
+• B2. Study test generation energy consumption
+• B3. Energy proﬁling of static analysis tools
+• B4. Detailed energy proﬁling of build pipelines
+• B5. Tool supporting SusAF workshop / process
+• B6. Dataset of government-developed OS software
+• B7. Queue - but better for the student / TA society
+Quality Assurance & Testing
+Social & Individual  
+Sustainability"
+How can static code analysis in data science be used to improve the energy efficiency of data centers and contribute to sustainable software engineering?,"Static code analysis in data science can be used to estimate energy efficiency by identifying potential energy hotspots in the code. This helps in reviewing and optimizing the code to reduce energy consumption. By applying this approach, developers can contribute to the design and maintenance of more energy-efficient data centers, aligning with sustainable software engineering practices.","<1-hop>
+
+C6 - Green Shift Left
+• Estimate energy eﬃciency using static code analysis.
+• We don’t need an accurate value.
+• It is useful to know which code is more likely to 
+introduce energy hotspots and that should be 
+reviewed with more attention.
+• Can be scoped to a particular domain (react, php, data 
+science, web, etc., etc.)
+27"
+How can static code analysis in data science be used to improve the energy efficiency of data centers and contribute to sustainable software engineering?,"Static code analysis in data science can be used to estimate energy efficiency by identifying potential energy hotspots in the code. This helps in reviewing and optimizing the code to reduce energy consumption. By applying this approach, developers can contribute to the design and maintenance of more energy-efficient data centers, aligning with sustainable software engineering practices.","<2-hop>
+
+Why?
+• Throughout your career you might:
+• Design/maintain/contract data centers
+• Set up operations/devops
+• Develop AI for IoT devices
+• Be the next CEO/CTO of a software company
+• Sustainability can be your main role:
+• Green Software Developer
+• Sustainability Consultant
+• Green Advocate 
+• Founder of a Green Tech startup (B2B?)
+28"
+How shuffling reduce risk when reduce size in software engineering?,"Shuffling reduce risk by controlling external factors like room temperature changes, which help in reducing size in software engineering.","<1-hop>
+
+Shuffle 
+🔀
+• It is not a mystery that energy consumption depends on so many factors that 
+it is impossible to control all of them.
+• If you run 30 executions for version A and another batch for version B:
+• External conditions that change over time will have a diﬀerent bias in 
+the 2 versions (e.g., room temperature changes).
+• If you shuﬄe, you reduce this risk.
+11"
+How shuffling reduce risk when reduce size in software engineering?,"Shuffling reduce risk by controlling external factors like room temperature changes, which help in reducing size in software engineering.","<2-hop>
+
+EcoAndroid
+• Plugin for IntelliJ (Android Studio)
+• Dynamic Retry Delay
+• Push Over Poll
+• Reduce Size
+• Cache
+• Avoid Graphics and Animations
+20"
+What are the practical applications of neuromorphic systems that leverage biological inspiration and advanced training methods for efficient computation?,"Neuromorphic systems, inspired by the human brain, have practical applications such as event-based vision, which is detailed in the reading materials. These systems use advanced training methods like surrogate gradient learning to optimize spiking neural networks, enabling efficient computation and real-world applications.","<1-hop>
+
+Neuromorphic computing
+Neuromorphic computing is an approach to computing that is inspired by the structure and function of the human brain.
+A neuromorphic computer/chip is any device that uses physical artificial neurons to do computations.
+https://en.wikipedia.org/wiki/Neuromorphic_engineering, https://www.informationweek.com/software-services/what-you-need-to-know-about-neuromorphic-computing"
+What are the practical applications of neuromorphic systems that leverage biological inspiration and advanced training methods for efficient computation?,"Neuromorphic systems, inspired by the human brain, have practical applications such as event-based vision, which is detailed in the reading materials. These systems use advanced training methods like surrogate gradient learning to optimize spiking neural networks, enabling efficient computation and real-world applications.","<2-hop>
+
+Reading materials
+Main reading:
+- Section 1 and Section 3.1 of ""Computing with spiking neuron networks."" by Paugam-Moisy H, Bohte SM, in Handbook of natural computing (2012). 
+https://homepages.cwi.nl/~sbohte/publication/paugam_moisy_bohte_SNNChapter.pdf
+- Maass W. Networks of spiking neurons: the third generation of neural network models. Neural networks. 1997. 10(9):1659-71. https://igi-web.tugraz.at/people/maass/psfiles/85a.pdf
+- Neuromorphic computing:
+- Based on biology: Zenke F, Bohté SM, Clopath C, Comşa IM, Göltz J, Maass W, Masquelier T, Naud R, Neftci EO, Petrovici MA, Scherr F. Visualizing a joint future of 
+neuroscience and neuromorphic engineering. Neuron. 2021. 109(4):571-5. https://www.sciencedirect.com/science/article/pii/S089662732100009X
+- How to train modern spiking networks: Neftci EO, Mostafa H, Zenke F. Surrogate gradient learning in spiking neural networks: Bringing the power of gradient-based 
+optimization to spiking neural networks. IEEE Signal Processing Magazine. 2019. 36(6):51-63. https://ieeexplore.ieee.org/abstract/document/8891809
+- Rate-based SNNs: Roy K, Jaiswal A, Panda P. Towards spike-based machine intelligence with neuromorphic computing. Nature. 2019. 575(7784):607-17. 
+https://www.nature.com/articles/s41586-019-1677-2
+Extra reading:
+- Converging history of deep networks and biological systems: Sejnowski TJ. The unreasonable effectiveness of deep learning in artificial intelligence. Proceedings of the National 
+Academy of Sciences. 2020. 117(48):30033-8. https://www.pnas.org/doi/full/10.1073/pnas.1907373117
+- Also an important part of neuromorphic systems and vision → Event Cameras: Gallego G, Delbrück T, Orchard G, Bartolozzi C, Taba B, Censi A, Leutenegger S, Davison AJ, Conradt J, 
+Daniilidis K, Scaramuzza D. Event-based vision: A survey. IEEE transactions on pattern analysis and machine intelligence. 2020. 44(1):154-80. 
+https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9138762
+Basics of 'conventional' neural networks:
+- Sections 4.1 to 4.4 from the book ""Pattern Recognition"" by Theodoridis and Koutroumbas.
+- Subsection 4.1.7 from the book ""Pattern Recognition and Machine Learning"" by Bishop."
+What is the foundational concepts of spiking neural networks and how they are used in encoding strategies?,"Spiking neural networks use spikes to encode information, with foundational concepts including the work of McCulloch and Pitts on logical calculus of nervous activity, and later developments in spiking neuron models.","<1-hop>
+
+Encoding strategies
+We considered single neurons with Boolean output (‘spike’=1 or ‘no spike’=0).
+How should we encode information about 'features' in a large network with many spikes?
+https://analyticsindiamag.com/a-tutorial-on-spiking-neural-networks-for-beginners/
+Elephant?
+https://www.nationalgeographic.com/anim
+als/mammals/facts/african-elephant"
+What is the foundational concepts of spiking neural networks and how they are used in encoding strategies?,"Spiking neural networks use spikes to encode information, with foundational concepts including the work of McCulloch and Pitts on logical calculus of nervous activity, and later developments in spiking neuron models.","<2-hop>
+
+References
+1) McCulloch WS, Pitts W. A logical calculus of the ideas immanent in nervous activity. The Bulletin of Mathematical Biophysics. 1943. 5(4):115-33. 
+https://link.springer.com/content/pdf/10.1007/BF02478259.pdf
+2) Pitts W, McCulloch WS. How we know universals the perception of auditory and visual forms. The Bulletin of Mathematical Biophysics. 1947. 
+9(3):127-47. https://link.springer.com/content/pdf/10.1007/BF02478291.pdf
+3) Abraham TH. (Physio) logical circuits: The intellectual origins of the McCulloch–Pitts neural networks. Journal of the History of the Behavioral 
+Sciences. 2002. 38(1):3-25. https://onlinelibrary.wiley.com/doi/pdf/10.1002/jhbs.1094
+4) Rosenblatt F. The perceptron: a probabilistic model for information storage and organization in the brain. Psychological review. 1958. 65(6):386. 
+(not publicly available) doi:10.1037/h0042519
+5) Tappert CC. Who is the father of deep learning? International Conference on Computational Science and Computational Intelligence (CSCI) 2019. 
+https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9070967
+6) https://github.com/idsc-frazzoli/retina
+7) Maass W. Networks of spiking neurons: the third generation of neural network models. Neural networks. 1997. 10(9):1659-71. 
+https://igi-web.tugraz.at/people/maass/psfiles/85a.pdf
+8) Paugam-Moisy H, Bohte SM, ""Computing with spiking neuron networks."" in Handbook of Natural Computing (2012). 
+https://homepages.cwi.nl/~sbohte/publication/paugam_moisy_bohte_SNNChapter.pdf
+9) Kheradpisheh SR, Ganjtabesh M, Thorpe SJ, Masquelier T. STDP-based spiking deep convolutional neural networks for object recognition. 
+Neural Networks. 2018 Mar 1;99:56-67. https://www-sciencedirect-com.tudelft.idm.oclc.org/science/article/pii/S0893608017302903
+10) Gütig R, Sompolinsky H. The tempotron: a neuron that learns spike timing–based decisions. Nature neuroscience. 2006 Mar;9(3):420-8. 
+http://mcn2016public.pbworks.com/w/file/fetch/137818197/Gutig_R_The%20tempotron_Nature%20Neuroscience.pdf
+11) Neftci EO, Mostafa H, Zenke F. Surrogate gradient learning in spiking neural networks: Bringing the power of gradient-based optimization to 
+SNNs. IEEE Signal Processing Magazine. 2019. 36(6):51-63. https://ieeexplore.ieee.org/abstract/document/8891809
+12) https://www.intel.com/content/www/us/en/research/neuromorphic-computing.html
+13) https://neuronaldynamics.epfl.ch/online/Ch1.S3.html
+14) Kron G. Numerical solution of ordinary and partial differential equations by means of equivalent circuits. Journal of Applied Physics. 1945. 
+16(3):172-86. https://aip.scitation.org/doi/abs/10.1063/1.1707568"
+What are the challenges in creating a dataset of government-developed OS software?,"Creating a dataset of government-developed OS software faces challenges such as a lack of incentive to make the software popular and language barriers, which hinder comprehensive understanding of the software's buildability, open development history, and requirements documentation.","<1-hop>
+
+B6. Dataset of government-developed OS software
+• Governments develop & use software for supporting society 
+Open-source development & policies are on the rise
+• But studying government software is diﬃcult b/c we don’t know what is out 
+there 
+→ Lack of incentive to make popular  
+→ Language barriers
+• Create a comprehensive dataset, incl. data to understand state of software: 
+buildable?, open dev. history?, requirements documentation?
+• Could start with NL, but including your / other countries greatly appreciated!"
+What are the challenges in creating a dataset of government-developed OS software?,"Creating a dataset of government-developed OS software faces challenges such as a lack of incentive to make the software popular and language barriers, which hinder comprehensive understanding of the software's buildability, open development history, and requirements documentation.","<2-hop>
+
+Project ideas
+• B1. Measure energy consumption of single JUnit tests 
+• B2. Study test generation energy consumption
+• B3. Energy proﬁling of static analysis tools
+• B4. Detailed energy proﬁling of build pipelines
+• B5. Tool supporting SusAF workshop / process
+• B6. Dataset of government-developed OS software
+• B7. Queue - but better for the student / TA society
+Quality Assurance & Testing
+Social & Individual  
+Sustainability"
+How can static code analysis in data science be used to improve the energy efficiency of data centers and contribute to sustainable software engineering?,"Static code analysis in data science can be used to estimate energy efficiency by identifying potential energy hotspots in the code. This helps in reviewing and optimizing the code to reduce energy consumption. By applying this approach, developers can contribute to the design and maintenance of more energy-efficient data centers, aligning with sustainable software engineering practices.","<1-hop>
+
+C6 - Green Shift Left
+• Estimate energy eﬃciency using static code analysis.
+• We don’t need an accurate value.
+• It is useful to know which code is more likely to 
+introduce energy hotspots and that should be 
+reviewed with more attention.
+• Can be scoped to a particular domain (react, php, data 
+science, web, etc., etc.)
+27"
+How can static code analysis in data science be used to improve the energy efficiency of data centers and contribute to sustainable software engineering?,"Static code analysis in data science can be used to estimate energy efficiency by identifying potential energy hotspots in the code. This helps in reviewing and optimizing the code to reduce energy consumption. By applying this approach, developers can contribute to the design and maintenance of more energy-efficient data centers, aligning with sustainable software engineering practices.","<2-hop>
+
+Why?
+• Throughout your career you might:
+• Design/maintain/contract data centers
+• Set up operations/devops
+• Develop AI for IoT devices
+• Be the next CEO/CTO of a software company
+• Sustainability can be your main role:
+• Green Software Developer
+• Sustainability Consultant
+• Green Advocate 
+• Founder of a Green Tech startup (B2B?)
+28"
+How reduce risk and reduce size in software engineering?,"To reduce risk, shuffling executions helps control external factors like temperature changes. To reduce size, EcoAndroid uses features like dynamic retry delay and push over poll.","<1-hop>
+
+Shuffle 
+🔀
+• It is not a mystery that energy consumption depends on so many factors that 
+it is impossible to control all of them.
+• If you run 30 executions for version A and another batch for version B:
+• External conditions that change over time will have a diﬀerent bias in 
+the 2 versions (e.g., room temperature changes).
+• If you shuﬄe, you reduce this risk.
+11"
+How reduce risk and reduce size in software engineering?,"To reduce risk, shuffling executions helps control external factors like temperature changes. To reduce size, EcoAndroid uses features like dynamic retry delay and push over poll.","<2-hop>
+
+EcoAndroid
+• Plugin for IntelliJ (Android Studio)
+• Dynamic Retry Delay
+• Push Over Poll
+• Reduce Size
+• Cache
+• Avoid Graphics and Animations
+20"
+What are the benefits of neuromorphic computing in the context of green software practices?,"Neuromorphic computing offers several benefits in the context of green software practices. It is inspired by the structure and function of the human brain, making it highly energy-efficient compared to traditional computing methods. This efficiency is particularly relevant for sustainable software development, as it reduces the environmental impact of computing systems. Additionally, neuromorphic systems can process information in a way that mimics biological neural networks, which can lead to more efficient and sustainable computing solutions. These aspects make neuromorphic computing a promising approach for developers looking to implement green software practices.","<1-hop>
+
+Neuromorphic computing
+Neuromorphic computing is an approach to computing that is inspired by the structure and function of the human brain.
+A neuromorphic computer/chip is any device that uses physical artificial neurons to do computations.
+https://en.wikipedia.org/wiki/Neuromorphic_engineering, https://www.informationweek.com/software-services/what-you-need-to-know-about-neuromorphic-computing"
+What are the benefits of neuromorphic computing in the context of green software practices?,"Neuromorphic computing offers several benefits in the context of green software practices. It is inspired by the structure and function of the human brain, making it highly energy-efficient compared to traditional computing methods. This efficiency is particularly relevant for sustainable software development, as it reduces the environmental impact of computing systems. Additionally, neuromorphic systems can process information in a way that mimics biological neural networks, which can lead to more efficient and sustainable computing solutions. These aspects make neuromorphic computing a promising approach for developers looking to implement green software practices.","<2-hop>
+
+Reading materials
+Main reading:
+- Section 1 and Section 3.1 of ""Computing with spiking neuron networks."" by Paugam-Moisy H, Bohte SM, in Handbook of natural computing (2012). 
+https://homepages.cwi.nl/~sbohte/publication/paugam_moisy_bohte_SNNChapter.pdf
+- Maass W. Networks of spiking neurons: the third generation of neural network models. Neural networks. 1997. 10(9):1659-71. https://igi-web.tugraz.at/people/maass/psfiles/85a.pdf
+- Neuromorphic computing:
+- Based on biology: Zenke F, Bohté SM, Clopath C, Comşa IM, Göltz J, Maass W, Masquelier T, Naud R, Neftci EO, Petrovici MA, Scherr F. Visualizing a joint future of 
+neuroscience and neuromorphic engineering. Neuron. 2021. 109(4):571-5. https://www.sciencedirect.com/science/article/pii/S089662732100009X
+- How to train modern spiking networks: Neftci EO, Mostafa H, Zenke F. Surrogate gradient learning in spiking neural networks: Bringing the power of gradient-based 
+optimization to spiking neural networks. IEEE Signal Processing Magazine. 2019. 36(6):51-63. https://ieeexplore.ieee.org/abstract/document/8891809
+- Rate-based SNNs: Roy K, Jaiswal A, Panda P. Towards spike-based machine intelligence with neuromorphic computing. Nature. 2019. 575(7784):607-17. 
+https://www.nature.com/articles/s41586-019-1677-2
+Extra reading:
+- Converging history of deep networks and biological systems: Sejnowski TJ. The unreasonable effectiveness of deep learning in artificial intelligence. Proceedings of the National 
+Academy of Sciences. 2020. 117(48):30033-8. https://www.pnas.org/doi/full/10.1073/pnas.1907373117
+- Also an important part of neuromorphic systems and vision → Event Cameras: Gallego G, Delbrück T, Orchard G, Bartolozzi C, Taba B, Censi A, Leutenegger S, Davison AJ, Conradt J, 
+Daniilidis K, Scaramuzza D. Event-based vision: A survey. IEEE transactions on pattern analysis and machine intelligence. 2020. 44(1):154-80. 
+https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9138762
+Basics of 'conventional' neural networks:
+- Sections 4.1 to 4.4 from the book ""Pattern Recognition"" by Theodoridis and Koutroumbas.
+- Subsection 4.1.7 from the book ""Pattern Recognition and Machine Learning"" by Bishop."
+How spiking neural networks relate to McCulloch-Pitts model?,"Spiking neural networks relate to the McCulloch-Pitts model by building upon the foundational concepts of neural computation, where the McCulloch-Pitts model introduced the idea of binary neuron states, which is extended in spiking networks to model more complex information processing through spike timing and patterns.","<1-hop>
+
+Encoding strategies
+We considered single neurons with Boolean output (‘spike’=1 or ‘no spike’=0).
+How should we encode information about 'features' in a large network with many spikes?
+https://analyticsindiamag.com/a-tutorial-on-spiking-neural-networks-for-beginners/
+Elephant?
+https://www.nationalgeographic.com/anim
+als/mammals/facts/african-elephant"
+How spiking neural networks relate to McCulloch-Pitts model?,"Spiking neural networks relate to the McCulloch-Pitts model by building upon the foundational concepts of neural computation, where the McCulloch-Pitts model introduced the idea of binary neuron states, which is extended in spiking networks to model more complex information processing through spike timing and patterns.","<2-hop>
+
+References
+1) McCulloch WS, Pitts W. A logical calculus of the ideas immanent in nervous activity. The Bulletin of Mathematical Biophysics. 1943. 5(4):115-33. 
+https://link.springer.com/content/pdf/10.1007/BF02478259.pdf
+2) Pitts W, McCulloch WS. How we know universals the perception of auditory and visual forms. The Bulletin of Mathematical Biophysics. 1947. 
+9(3):127-47. https://link.springer.com/content/pdf/10.1007/BF02478291.pdf
+3) Abraham TH. (Physio) logical circuits: The intellectual origins of the McCulloch–Pitts neural networks. Journal of the History of the Behavioral 
+Sciences. 2002. 38(1):3-25. https://onlinelibrary.wiley.com/doi/pdf/10.1002/jhbs.1094
+4) Rosenblatt F. The perceptron: a probabilistic model for information storage and organization in the brain. Psychological review. 1958. 65(6):386. 
+(not publicly available) doi:10.1037/h0042519
+5) Tappert CC. Who is the father of deep learning? International Conference on Computational Science and Computational Intelligence (CSCI) 2019. 
+https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9070967
+6) https://github.com/idsc-frazzoli/retina
+7) Maass W. Networks of spiking neurons: the third generation of neural network models. Neural networks. 1997. 10(9):1659-71. 
+https://igi-web.tugraz.at/people/maass/psfiles/85a.pdf
+8) Paugam-Moisy H, Bohte SM, ""Computing with spiking neuron networks."" in Handbook of Natural Computing (2012). 
+https://homepages.cwi.nl/~sbohte/publication/paugam_moisy_bohte_SNNChapter.pdf
+9) Kheradpisheh SR, Ganjtabesh M, Thorpe SJ, Masquelier T. STDP-based spiking deep convolutional neural networks for object recognition. 
+Neural Networks. 2018 Mar 1;99:56-67. https://www-sciencedirect-com.tudelft.idm.oclc.org/science/article/pii/S0893608017302903
+10) Gütig R, Sompolinsky H. The tempotron: a neuron that learns spike timing–based decisions. Nature neuroscience. 2006 Mar;9(3):420-8. 
+http://mcn2016public.pbworks.com/w/file/fetch/137818197/Gutig_R_The%20tempotron_Nature%20Neuroscience.pdf
+11) Neftci EO, Mostafa H, Zenke F. Surrogate gradient learning in spiking neural networks: Bringing the power of gradient-based optimization to 
+SNNs. IEEE Signal Processing Magazine. 2019. 36(6):51-63. https://ieeexplore.ieee.org/abstract/document/8891809
+12) https://www.intel.com/content/www/us/en/research/neuromorphic-computing.html
+13) https://neuronaldynamics.epfl.ch/online/Ch1.S3.html
+14) Kron G. Numerical solution of ordinary and partial differential equations by means of equivalent circuits. Journal of Applied Physics. 1945. 
+16(3):172-86. https://aip.scitation.org/doi/abs/10.1063/1.1707568"
+What is the project idea related to creating a dataset of goverment-developed OS software?,"The project idea is to create a dataset of government-developed OS software, which would help in understanding the state of such software, including whether it is buildable, has open development history, and has requirements documentation.","<1-hop>
+
+B6. Dataset of government-developed OS software
+• Governments develop & use software for supporting society 
+Open-source development & policies are on the rise
+• But studying government software is diﬃcult b/c we don’t know what is out 
+there 
+→ Lack of incentive to make popular  
+→ Language barriers
+• Create a comprehensive dataset, incl. data to understand state of software: 
+buildable?, open dev. history?, requirements documentation?
+• Could start with NL, but including your / other countries greatly appreciated!"
+What is the project idea related to creating a dataset of goverment-developed OS software?,"The project idea is to create a dataset of government-developed OS software, which would help in understanding the state of such software, including whether it is buildable, has open development history, and has requirements documentation.","<2-hop>
+
+Project ideas
+• B1. Measure energy consumption of single JUnit tests 
+• B2. Study test generation energy consumption
+• B3. Energy proﬁling of static analysis tools
+• B4. Detailed energy proﬁling of build pipelines
+• B5. Tool supporting SusAF workshop / process
+• B6. Dataset of government-developed OS software
+• B7. Queue - but better for the student / TA society
+Quality Assurance & Testing
+Social & Individual  
+Sustainability"
+How can static code analysis in data science projects help in designing more sustainablility-focused data centers?,"Static code analysis in data science projects can help in designing more sustainablility-focused data centers by identifying energy hotspots in the code. This allows developers to review and optimize code that may contribute to higher energy consumption, thereby supporting the development of more efficient and sustainable data centers.","<1-hop>
+
+C6 - Green Shift Left
+• Estimate energy eﬃciency using static code analysis.
+• We don’t need an accurate value.
+• It is useful to know which code is more likely to 
+introduce energy hotspots and that should be 
+reviewed with more attention.
+• Can be scoped to a particular domain (react, php, data 
+science, web, etc., etc.)
+27"
+How can static code analysis in data science projects help in designing more sustainablility-focused data centers?,"Static code analysis in data science projects can help in designing more sustainablility-focused data centers by identifying energy hotspots in the code. This allows developers to review and optimize code that may contribute to higher energy consumption, thereby supporting the development of more efficient and sustainable data centers.","<2-hop>
+
+Why?
+• Throughout your career you might:
+• Design/maintain/contract data centers
+• Set up operations/devops
+• Develop AI for IoT devices
+• Be the next CEO/CTO of a software company
+• Sustainability can be your main role:
+• Green Software Developer
+• Sustainability Consultant
+• Green Advocate 
+• Founder of a Green Tech startup (B2B?)
+28"
+How shuffling reduce risk when reduce size in software engineering?,"Shuffling reduce risk by controlling external factors like room temperature changes, which help in reducing size in software engineering.","<1-hop>
+
+Shuffle 
+🔀
+• It is not a mystery that energy consumption depends on so many factors that 
+it is impossible to control all of them.
+• If you run 30 executions for version A and another batch for version B:
+• External conditions that change over time will have a diﬀerent bias in 
+the 2 versions (e.g., room temperature changes).
+• If you shuﬄe, you reduce this risk.
+11"
+How shuffling reduce risk when reduce size in software engineering?,"Shuffling reduce risk by controlling external factors like room temperature changes, which help in reducing size in software engineering.","<2-hop>
+
+EcoAndroid
+• Plugin for IntelliJ (Android Studio)
+• Dynamic Retry Delay
+• Push Over Poll
+• Reduce Size
+• Cache
+• Avoid Graphics and Animations
+20"
+"What are the practical applications of neuromorphic computing, and how does its biological inspiration influence its implementation in modern computing systems?","Neuromorphic computing, inspired by the human brain, offers practical applications such as event-based vision systems and efficient processing of sensory data. Its biological inspiration influences its implementation through the use of spiking neural networks and physical artificial neurons, enabling more energy-efficient and brain-like computation methods.","<1-hop>
+
+Neuromorphic computing
+Neuromorphic computing is an approach to computing that is inspired by the structure and function of the human brain.
+A neuromorphic computer/chip is any device that uses physical artificial neurons to do computations.
+https://en.wikipedia.org/wiki/Neuromorphic_engineering, https://www.informationweek.com/software-services/what-you-need-to-know-about-neuromorphic-computing"
+"What are the practical applications of neuromorphic computing, and how does its biological inspiration influence its implementation in modern computing systems?","Neuromorphic computing, inspired by the human brain, offers practical applications such as event-based vision systems and efficient processing of sensory data. Its biological inspiration influences its implementation through the use of spiking neural networks and physical artificial neurons, enabling more energy-efficient and brain-like computation methods.","<2-hop>
+
+Reading materials
+Main reading:
+- Section 1 and Section 3.1 of ""Computing with spiking neuron networks."" by Paugam-Moisy H, Bohte SM, in Handbook of natural computing (2012). 
+https://homepages.cwi.nl/~sbohte/publication/paugam_moisy_bohte_SNNChapter.pdf
+- Maass W. Networks of spiking neurons: the third generation of neural network models. Neural networks. 1997. 10(9):1659-71. https://igi-web.tugraz.at/people/maass/psfiles/85a.pdf
+- Neuromorphic computing:
+- Based on biology: Zenke F, Bohté SM, Clopath C, Comşa IM, Göltz J, Maass W, Masquelier T, Naud R, Neftci EO, Petrovici MA, Scherr F. Visualizing a joint future of 
+neuroscience and neuromorphic engineering. Neuron. 2021. 109(4):571-5. https://www.sciencedirect.com/science/article/pii/S089662732100009X
+- How to train modern spiking networks: Neftci EO, Mostafa H, Zenke F. Surrogate gradient learning in spiking neural networks: Bringing the power of gradient-based 
+optimization to spiking neural networks. IEEE Signal Processing Magazine. 2019. 36(6):51-63. https://ieeexplore.ieee.org/abstract/document/8891809
+- Rate-based SNNs: Roy K, Jaiswal A, Panda P. Towards spike-based machine intelligence with neuromorphic computing. Nature. 2019. 575(7784):607-17. 
+https://www.nature.com/articles/s41586-019-1677-2
+Extra reading:
+- Converging history of deep networks and biological systems: Sejnowski TJ. The unreasonable effectiveness of deep learning in artificial intelligence. Proceedings of the National 
+Academy of Sciences. 2020. 117(48):30033-8. https://www.pnas.org/doi/full/10.1073/pnas.1907373117
+- Also an important part of neuromorphic systems and vision → Event Cameras: Gallego G, Delbrück T, Orchard G, Bartolozzi C, Taba B, Censi A, Leutenegger S, Davison AJ, Conradt J, 
+Daniilidis K, Scaramuzza D. Event-based vision: A survey. IEEE transactions on pattern analysis and machine intelligence. 2020. 44(1):154-80. 
+https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9138762
+Basics of 'conventional' neural networks:
+- Sections 4.1 to 4.4 from the book ""Pattern Recognition"" by Theodoridis and Koutroumbas.
+- Subsection 4.1.7 from the book ""Pattern Recognition and Machine Learning"" by Bishop."

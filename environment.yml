@@ -27,4 +27,6 @@ dependencies:
     - ragas
     - llama-index-vector-stores-pinecone
     - llama-index-embeddings-openai
+    - llama-index-retrievers-bm25
     - pypdf
+    - rapidfuzz

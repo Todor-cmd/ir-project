@@ -7,7 +7,7 @@ load_dotenv()
 from pinecone import Pinecone
 
 from llama_index.core import VectorStoreIndex, StorageContext, Document
-from llama_index.core.node_parser import SentenceSplitter
+from llama_index.core.node_parser import SentenceSplitter, SemanticSplitterNodeParser
 from llama_index.vector_stores.pinecone import PineconeVectorStore
 from llama_index.core.retrievers import VectorIndexRetriever, QueryFusionRetriever
 from llama_index.core.storage.docstore import SimpleDocumentStore
@@ -25,6 +25,7 @@ from llama_index.llms.groq import Groq
 from llama_index.core import QueryBundle
 from llama_index.core.postprocessor import LLMRerank
 from pprint import pprint
+import time
 
 class CustomRetriever(ABC):
     @abstractmethod
@@ -44,7 +45,8 @@ class PineconeRetriever(CustomRetriever):
         self.pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
         self.pc_index = self.pc.Index(host=os.getenv("PINECONE_HOST"))
         
-        # Setup vector store and storage context
+        self.splitter = SentenceSplitter(chunk_size=500, chunk_overlap=100)
+        
         self.vector_store = PineconeVectorStore(
             index=self.pc_index,
             index_name=os.getenv("PINECONE_INDEX_NAME")
@@ -56,6 +58,7 @@ class PineconeRetriever(CustomRetriever):
             vector_store=self.vector_store,
             storage_context=self.storage_context
         )
+      
         
     def delete_all_documents(self) -> None:
         """Delete all documents from the Pinecone vector store."""
@@ -67,7 +70,7 @@ class PineconeRetriever(CustomRetriever):
         else:
             print("Index is already empty")
         
-    def add_documents(self, documents) -> None:
+    def add_documents(self, documents : List[Document]) -> None:
         """Add documents to the Pinecone index.
         
         Args:
@@ -76,16 +79,30 @@ class PineconeRetriever(CustomRetriever):
         # First delete all documents from the index
         self.delete_all_documents()
         
-        # Convert strings to Document objects if needed
-        doc_objects = [
-            doc if isinstance(doc, Document) else Document(text=doc)
-            for doc in documents
-        ]
+        # Split documents into chunks
+        nodes = self.splitter.get_nodes_from_documents(documents)
+       
+        # Add documents to Pinecone
+        self.docstore = SimpleDocumentStore()
+        self.docstore.add_documents(nodes)
         
-        # Add documents to existing index
-        self.index.refresh_ref_docs(doc_objects)
+        self.storage_context = StorageContext.from_defaults(
+                docstore=self.docstore, vector_store=self.vector_store
+            )
+            
+        self.index = VectorStoreIndex(
+            nodes=nodes,
+            storage_context=self.storage_context,
+            vector_store=self.vector_store
+        )
         
-        print(f"Added {len(documents)} documents to Pinecone index")
+        # Needed for vectors to sync
+        print("Sleeping for 60 seconds")
+        time.sleep(60.0)
+
+        stats = self.pc_index.describe_index_stats()
+        
+        print(f"Added {len(documents)} documents ({len(nodes)} chunks) to Pinecone index resulting in {stats.total_vector_count} vectors")
     
     def retrieve_relevant_documents(self, query: str, k: int = 5):
         """Retrieve relevant documents given a query.
@@ -97,11 +114,10 @@ class PineconeRetriever(CustomRetriever):
         Returns:
             List of retrieved Node objects containing the relevant documents
         """
+  
+        
         # Create retriever with specified parameters
-        retriever = VectorIndexRetriever(
-            index=self.index,
-            similarity_top_k=k,
-        )
+        retriever = self.index.as_retriever(similarity_top_k=k)
         # Retrieve relevant documents
         retrieved_nodes = retriever.retrieve(query)
         
@@ -111,8 +127,8 @@ class PineconeRetriever(CustomRetriever):
         return retrieved_texts
     
 # TODO: Use QueryFusionRetriever for this
-class HybridBM25Retriever(CustomRetriever, pinecone_preloaded=True):
-    def __init__(self, documents=[]):
+class HybridBM25Retriever(CustomRetriever):
+    def __init__(self, pinecone_preloaded=True):
         super().__init__()
         # Initialize Pinecone
         self.pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
@@ -124,13 +140,20 @@ class HybridBM25Retriever(CustomRetriever, pinecone_preloaded=True):
             index_name=os.getenv("PINECONE_INDEX_NAME")
         )
         
-        self.pinecone_preloaded = True
+        self.pinecone_preloaded = pinecone_preloaded
         self.index = None
-        self.documents = documents
-        self.nodes = None
-        self.bm25_retriever = None
-        self.dense_retriever = None
+        self.splitter = SentenceSplitter(chunk_size=500, chunk_overlap=100)
+
+
+    def _refresh_pinecone(self):
+        self.pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
+        self.pc_index = self.pc.Index(host=os.getenv("PINECONE_HOST"))
         
+        # Setup vector store and storage context
+        self.vector_store = PineconeVectorStore(
+            index=self.pc_index,
+            index_name=os.getenv("PINECONE_INDEX_NAME")
+        )
     
     def delete_all_documents(self) -> None:
         """Delete all documents from the Pinecone vector store."""
@@ -147,47 +170,44 @@ class HybridBM25Retriever(CustomRetriever, pinecone_preloaded=True):
         self.nodes = []
     
     
-    def add_documents(self, documents):
-        doc_objects = [
-            doc if isinstance(doc, Document) else Document(text=doc)
-            for doc in documents
-        ]
-        
-        if not self.pinecone_preloaded:
-            self.delete_all_documents()
-            
-            stats = self.pc_index.describe_index_stats()
-            print(stats.total_vector_count)
-            
-            # # Add documents to Pinecone vector store
-            temp_storage_context = StorageContext.from_defaults(vector_store=self.vector_store)
-            
-            temp_index = VectorStoreIndex.from_vector_store(
-                vector_store=self.vector_store,
-                storage_context=temp_storage_context
-            )
-            temp_index.refresh_ref_docs(doc_objects)
-            
-            stats = self.pc_index.describe_index_stats()
-            print(stats.total_vector_count)
-        
-            print(f"Added {len(documents)} documents to Pinecone index")
-        splitter = SentenceSplitter(chunk_size=1000)
-
-        self.nodes = splitter.get_nodes_from_documents(doc_objects)
-        
+    def add_documents(self, documents : List[Document]):
+        nodes = self.splitter.get_nodes_from_documents(documents)
         self.docstore = SimpleDocumentStore()
-        self.docstore.add_documents(self.nodes)
+        self.docstore.add_documents(nodes)
+        if self.pinecone_preloaded:
+            #Load data directly from Pinecone
+            self.storage_context = StorageContext.from_defaults(vector_store=self.vector_store)
 
-        self.storage_context = StorageContext.from_defaults(
-            docstore=self.docstore, vector_store=self.vector_store)
-        
-        # Create index
-        self.index = VectorStoreIndex(
-            nodes=self.nodes,
-            storage_context=self.storage_context
-        )
-    
+            stats = self.pc_index.describe_index_stats()
+            print(stats.total_vector_count)
+            
+            self.index = VectorStoreIndex.from_vector_store(
+                vector_store=self.vector_store,
+                storage_context=self.storage_context
+            )
+            
+        else:
+            self.delete_all_documents()            
+            
+            self.storage_context = StorageContext.from_defaults(
+                    docstore=self.docstore, vector_store=self.vector_store
+                )
+                
+            self.index = VectorStoreIndex(
+                nodes=nodes,
+                storage_context=self.storage_context,
+                vector_store=self.vector_store
+            )
+            
+            # Needed for vectors to sync
+            print("Sleeping for 60 seconds")
+            time.sleep(60.0)
+
+            stats = self.pc_index.describe_index_stats()
+            print(stats.total_vector_count)
+            
+            print(f"Added {len(documents)} documents ({len(nodes)} chunks) to Pinecone index")
+
     def retrieve_relevant_documents(self, query, k=5):
         """Retrieve documents using BM25 and dense retrieval, then merge scores."""
         
@@ -195,7 +215,7 @@ class HybridBM25Retriever(CustomRetriever, pinecone_preloaded=True):
             [
                 self.index.as_retriever(similarity_top_k=k),
                 BM25Retriever.from_defaults(
-                    docstore=self.index.docstore, similarity_top_k=k
+                    docstore=self.docstore, similarity_top_k=k
                 ),
             ],
             num_queries=1,
@@ -248,10 +268,6 @@ class AutoMergeWithRerankRetriever(CustomRetriever):
 
         storage_context = StorageContext.from_defaults(docstore=docstore)
 
-       
-
-        
-
         base_index = VectorStoreIndex(
             leaf_nodes,
             storage_context=storage_context,
@@ -275,29 +291,31 @@ class AutoMergeWithRerankRetriever(CustomRetriever):
         
 
 if __name__ == "__main__":
-    from llama_index.readers.file import PDFReader
     from llama_index.readers.file import PyMuPDFReader
     
-    retriever = HybridBM25Retriever()
+    retriever = HybridBM25Retriever(pinecone_preloaded=False)
     reader = PyMuPDFReader()
-    # Load all PDF documents from the data directory
+    
+    # # Load all PDF documents from the data directory
     pdf_dir = "./data/sse_lectures"
     pdf_files = [os.path.join(pdf_dir, f) for f in os.listdir(pdf_dir) if f.endswith('.pdf')]
+    pdf_files = pdf_files[:3]
+    documents = []
+    for pdf_file in pdf_files:
+        docs = reader.load(file_path=pdf_file)
+        # join all the documents into one
+        doc_text = "\n".join([doc.text for doc in docs])
+        documents.append(Document(text=doc_text))
+        print(f"Loaded document from {pdf_file}")
     
-    # documents = []
-    # for pdf_file in pdf_files:
-    #     docs = reader.load(file_path=pdf_file)
-    #     documents.extend(docs)
-    #     print(f"Loaded {len(docs)} documents from {pdf_file}")
+    # Add documents to retriever
+    retriever.add_documents(documents)
     
-    # # Add documents to retriever
-    # retriever.add_documents(documents)
-    # print(f"\nTotal documents added: {len(documents)}")
+    query = "What is sustainable software engineering?"
+    docs = retriever.retrieve_relevant_documents(query, k=3)
+    pprint(docs)
     
-    # query = "What is the main idea of this course?"
-    # docs = retriever.retrieve_relevant_documents(query, k=3)
-    # pprint(docs)
+    # retriever.delete_all_documents()
     
-    retriever.delete_all_documents()
     
     

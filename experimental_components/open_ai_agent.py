@@ -4,14 +4,16 @@ import tempfile
 from dotenv import load_dotenv
 import json
 from openai import OpenAI
-
+from llama_index.core import Document
+from typing import List
+from langchain_openai import ChatOpenAI
 load_dotenv()
 
 class OpenAIAssistant:
-    def __init__(self, model="gpt-4o") -> None:
-        self.model = model
+    def __init__(self, llm : ChatOpenAI) -> None:
         self.client = OpenAI()
         self.vector_store_id = os.getenv("OPENAI_VECTOR_STORE_ID")
+        self.llm = llm
         
     def delete_all_files(self):
         file_ids = self.client.files.list()
@@ -37,7 +39,7 @@ class OpenAIAssistant:
                 print(f"Error deleting file {file}: {e}")
 
         
-    def load_documents(self, documents):
+    def load_documents(self, documents: List[Document]):
         """Load documents by uploading them to OpenAI.
         
         Args:
@@ -46,10 +48,11 @@ class OpenAIAssistant:
         self.delete_all_documents()
         self.delete_all_files()
         
+        file_ids = []
         # Upload each document as a separate file
         for i, doc in enumerate(documents):
-            with tempfile.NamedTemporaryFile(mode="w+", suffix=".txt", delete=False) as temp:
-                temp.write(doc)
+            with tempfile.NamedTemporaryFile(mode="w+", encoding="utf-8", suffix=".txt", delete=False) as temp:
+                temp.write(doc.text)
                 temp_path = temp.name
             
             # Upload file to OpenAI with file-search purpose
@@ -58,18 +61,18 @@ class OpenAIAssistant:
                     file=f,
                     purpose="user_data"
                 )
-                self.file_ids.append(file.id)
+                file_ids.append(file.id)
             
             # Clean up temp file
             os.unlink(temp_path)
         
         self.client.vector_stores.file_batches.create_and_poll(
             vector_store_id=self.vector_store_id,
-            file_ids=self.file_ids
+            file_ids=file_ids
         )
             
         self.uploaded_docs = documents
-        print(f"Uploaded {len(self.file_ids)} documents for file search")
+        print(f"Uploaded {len(file_ids)} documents for file search")
     
     def get_most_relevant_docs(self, query):
         """Retrieve the most relevant documents for a query using file_search.
@@ -108,18 +111,24 @@ class OpenAIAssistant:
             Generated answer string
         """
         # Combine the relevant docs into a prompt
-        docs_text = "\n\n---\n\n".join(relevant_docs)
+        context = "\n\n---Source SEPARATOR---\n\n".join([doc for doc in relevant_docs])
+        
+        system_prompt = f"""You are a helpful AI assistant. Use the following sources to answer the user's question:
+        
+        Sources: {context}
+        
+        Answer the question based on the sources provided. If you cannot find the answer in the sources, say so, but 
+        also try to answer the question anyway if you can. Keep the answer concise and to the point."""
+        
+        messages = [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": query}
+        ]
         
         # Use chat completions API for the generation part
-        response = self.client.chat.completions.create(
-            model=self.model,
-            messages=[
-                {"role": "system", "content": "You are a helpful assistant that answers questions based ONLY on the provided documents."},
-                {"role": "user", "content": f"Use ONLY the following information to answer the question, and cite your sources.\n\nINFORMATION:\n{docs_text}\n\nQUESTION: {query}"}
-            ]
-        )
+        response = self.llm.invoke(messages)
         
-        return response.choices[0].message.content
+        return response.content
 
 if __name__ == "__main__":
     agent = OpenAIAssistant()

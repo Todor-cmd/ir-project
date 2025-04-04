@@ -22,8 +22,17 @@ dependencies:
   - datasets
   - faiss-cpu
   - pinecone
+  - ipykernel
   - pip
   - pip:
     - ragas
     - llama-index-vector-stores-pinecone
+    - llama-index-llms-groq
     - llama-index-embeddings-openai
+    - llama-index-retrievers-bm25
+    - llama-index-readers-file 
+    - pymupdf
+    - pypdf
+    - rapidfuzz
+    - tqdm
+ 

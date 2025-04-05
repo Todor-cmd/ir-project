@@ -49,7 +49,7 @@ def prepare_sse_testset(is_multihop=False):
     
     return documents, queries, reference_responses, golden_contexts
 
-def prepare_nq_testset(num_samples=500, use_cache=True, cache_path="./data/nq_processed_data.pkl"):
+def prepare_nq_testset(num_samples=100, use_cache=False, cache_path="./data/nq_processed_data.pkl"):
     # Check if cached data exists
     if use_cache and os.path.exists(cache_path):
         print(f"Loading cached data from {cache_path}...")
@@ -94,7 +94,7 @@ def prepare_nq_testset(num_samples=500, use_cache=True, cache_path="./data/nq_pr
     return documents, queries, reference_responses, golden_contexts
         
         
-def prepare_hotpotqa_testset(num_samples=500, use_cache=True, cache_path="./data/hotpotqa_processed_data.pkl"):
+def prepare_hotpotqa_testset(num_samples=100, use_cache=False, cache_path="./data/hotpotqa_processed_data.pkl"):
     # Check if cached data exists
     if use_cache and os.path.exists(cache_path):
         print(f"Loading cached data from {cache_path}...")
@@ -103,7 +103,7 @@ def prepare_hotpotqa_testset(num_samples=500, use_cache=True, cache_path="./data
 
     # Load the dataset from Hugging Face
     dataset = load_dataset("hotpot_qa", "distractor", split="validation", trust_remote_code=True)
-    
+
     samples = dataset.select(range(num_samples))
     
     # Take the top n samples
@@ -150,12 +150,15 @@ def prepare_hotpotqa_testset(num_samples=500, use_cache=True, cache_path="./data
         golden_contexts.append(supporting_facts)
         
     # Merge 10 documents into one document
+    print(f"Number of documents pre merge: {len(documents)}")
     merged_documents = []
     for i in range(0, len(documents), 10):
         merged_doc = "\n".join([doc.text for doc in documents[i:i+10]])
         merged_documents.append(Document(text=merged_doc))
         
     documents = merged_documents
+    
+    print(f"Number of documents: {len(documents)}")
 
     # After processing, save to cache
     if use_cache:
@@ -176,8 +179,8 @@ def get_data_preparation_functions():
 
 if __name__ == "__main__":
     # Will use cached data if available, otherwise process and cache
-    documents, queries, reference_responses, golden_contexts = prepare_sse_testset(is_multihop=True)
-    print(len(documents))
-    print(documents[2].text)
+    documents, queries, reference_responses, golden_contexts = prepare_hotpotqa_testset(num_samples=500, use_cache=True)
+    
+
     
 

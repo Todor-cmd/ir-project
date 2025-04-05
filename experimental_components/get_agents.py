@@ -16,10 +16,10 @@ def get_rag_agents_for_experiment_1():
     
     # It's important that pinecone is before hybrid in this dict if pinecone-preloaded is set to true!
     agents = {
+        "openai": agent_openai,
         "pinecone": agent_pinecone,
         "hybrid": agent_hybrid,
-        "auto_merge": agent_auto_merge,
-        "openai": agent_openai
+        "auto_merge": agent_auto_merge
     }
     
     return agents

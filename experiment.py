@@ -17,26 +17,38 @@ def run_experiment(agents, data_preparation_functions):
     for dataset_name, data_preparation_function in data_preparation_functions.items():
         documents, queries, reference_responses, reference_contexts = data_preparation_function()
         
-
+        # For bigger datasets, we only evaluate on the first 50 examples
+        if dataset_name == "hotpotqa" or dataset_name == "nq":
+            print(f"Shortening to use only first 50 examples of {dataset_name}")
+            queries = queries[:50]
+            
         
-        dataset_to_evaluate = []
         for agent_name, agent in agents.items():
-            print(f"Getting responses for {agent_name} on {dataset_name}")
-            if dataset_name == "sse_single" or dataset_name == "sse_multi":
-                print(f"Skipping {agent_name} for {dataset_name} because it's done.")
-                continue
+            print(f"Running experiment for {agent_name} on {dataset_name}")
+            agent.load_documents(documents)
             
             save_path = f"./results/{dataset_name}/{agent_name}"
-            if not (dataset_name == "hotpotqa" and agent_name == "pinecone"):
-                agent.load_documents(documents)
-                
+            
+            # Reset dataset_to_evaluate for each agent
+            dataset_to_evaluate = []
+            
+            print(f"Collecting responses from {agent_name} on {dataset_name}")
             for i in tqdm(range(len(queries))):
                 query = queries[i]
                 reference_response = reference_responses[i]
                 reference_context = reference_contexts[i]
                 
                 agents_retrieved_docs = agent.get_most_relevant_docs(query)
-                agent_response = agent.generate_answer(query, agents_retrieved_docs)
+                
+                try:
+                    agent_response = agent.generate_answer(query, agents_retrieved_docs)
+                except Exception as e:
+                    print(f"Error generating response for {agent_name} on {dataset_name} at query {i}: {e}")
+                    break
+                
+                # Convert reference_response to string if it's a list
+                if isinstance(reference_response, list):
+                    reference_response = reference_response[0] if reference_response else ""
                 
                 dataset_to_evaluate.append(
                     {
@@ -48,11 +60,12 @@ def run_experiment(agents, data_preparation_functions):
                     }
                 )
                 
-            
+ 
             eval_dataset = EvaluationDataset.from_list(dataset_to_evaluate)
             
             os.makedirs(save_path, exist_ok=True)
             print(f"Saving raw evaluation dataset to {save_path}/raw_evaluation_dataset.csv")
+           
             raw_eval_df = eval_dataset.to_pandas()
             raw_eval_df.to_csv(f"{save_path}/raw_evaluation_dataset.csv", encoding="utf-8", index=False)
             
@@ -79,9 +92,9 @@ def run_experiment(agents, data_preparation_functions):
             print(f"Evaluation results for {agent_name} on {dataset_name}:")
             pprint(evaluations)
             
-def fnish_incomplete_evaluation():
+def finish_incomplete_evaluation(agent, dataset):
     #Get csv and make an EvaluationDataset from it
-    save_path = f"./results/sse_single/hybrid"
+    save_path = f"./results/{dataset}/{agent}"
     path_to_csv = f"{save_path}/raw_evaluation_dataset.csv"
     
     df = pd.read_csv(path_to_csv)
@@ -141,7 +154,7 @@ def fnish_incomplete_evaluation():
     eval_dataset = EvaluationDataset.from_pandas(df)
     
     evaluator_llm = LangchainLLMWrapper(
-        ChatGroq(model="deepseek-r1-distill-qwen-32b", temperature=0.2)
+        ChatGroq(model="deepseek-r1-distill-qwen-32b", temperature=0.2, max_tokens=4096)
     )
     
     #Evaluate the dataset
@@ -171,4 +184,7 @@ def run_experiment_1():
 
 if __name__ == "__main__":
     run_experiment_1()
-    # fnish_incomplete_evaluation()
+    # agent = "openai"
+    # dataset = "nq"
+    # fnish_incomplete_evaluation(agent, dataset)
+    

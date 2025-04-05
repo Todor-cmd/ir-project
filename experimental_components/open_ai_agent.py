@@ -7,19 +7,21 @@ from openai import OpenAI
 from llama_index.core import Document
 from typing import List
 from langchain_openai import ChatOpenAI
-load_dotenv()
+from tqdm import tqdm
+load_dotenv(override=True)
 
 class OpenAIAssistant:
     def __init__(self, llm : ChatOpenAI) -> None:
         self.client = OpenAI()
         self.vector_store_id = os.getenv("OPENAI_VECTOR_STORE_ID")
+        print(f"Vector store ID: {self.vector_store_id}")
         self.llm = llm
         
     def delete_all_files(self):
         file_ids = self.client.files.list()
-           
-        for file in file_ids.data:
-            print(f"Deleting file {file.id}")
+        
+        print(f"Deleting {len(file_ids.data)} files")
+        for file in tqdm(file_ids.data):
             self.client.files.delete(file_id=file.id)
         
     def delete_all_documents(self):
@@ -27,9 +29,8 @@ class OpenAIAssistant:
         file_ids = self.client.vector_stores.files.list(
             vector_store_id=self.vector_store_id
         )
-        print(f"Deleting stored files")
-        for file in file_ids:
-            print(f"Deleting file {file.id}")
+        print(f"Deleting files from vector store {self.vector_store_id}")
+        for file in tqdm(file_ids):
             try:
                 self.client.vector_stores.files.delete(
                     vector_store_id=self.vector_store_id,
@@ -50,7 +51,8 @@ class OpenAIAssistant:
         
         file_ids = []
         # Upload each document as a separate file
-        for i, doc in enumerate(documents):
+        print(f"Creating {len(documents)} temporary files")
+        for i, doc in tqdm(enumerate(documents)):
             with tempfile.NamedTemporaryFile(mode="w+", encoding="utf-8", suffix=".txt", delete=False) as temp:
                 temp.write(doc.text)
                 temp_path = temp.name
@@ -66,6 +68,7 @@ class OpenAIAssistant:
             # Clean up temp file
             os.unlink(temp_path)
         
+        print(f"Uploading {len(file_ids)} documents to OpenAI for file search")
         self.client.vector_stores.file_batches.create_and_poll(
             vector_store_id=self.vector_store_id,
             file_ids=file_ids
@@ -87,7 +90,7 @@ class OpenAIAssistant:
         response = self.client.vector_stores.search(
             query=query,
             vector_store_id=self.vector_store_id,
-            max_num_results=20,
+            max_num_results=3,
             rewrite_query=True
         )
         
@@ -131,6 +134,8 @@ class OpenAIAssistant:
         return response.content
 
 if __name__ == "__main__":
-    agent = OpenAIAssistant()
+    llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
+    agent = OpenAIAssistant(llm)
+    # agent.delete_all_files()
     # Can test the functions here if you want
     
